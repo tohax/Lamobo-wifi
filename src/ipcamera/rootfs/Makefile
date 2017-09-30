@@ -11,9 +11,9 @@ BUILD_SQAUSHFS := ./create_squashfs.sh
 
 PAGE_SIZE ?=
 
-all: image 
+all: image
 
-image: libfs selffs 
+image: libfs selffs
 
 reinstall:
 ifeq ($(PAGE_SIZE), 2048)
