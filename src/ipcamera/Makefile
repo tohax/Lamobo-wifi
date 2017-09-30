@@ -10,7 +10,7 @@ CP:=cp -f
 
 export MAKE CP LIBFS ROOTFS_BIN_DIR ROOTFS_CGI_DIR
 
-dir-y += source
+#dir-y += source
 dir-y += rootfs
 
 
