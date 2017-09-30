@@ -1,0 +1,26 @@
+#!/bin/sh
+
+# Mount sd card to /mnt folder
+mount /dev/mmcblk0p1 /mnt
+
+# Adding Hwclock to the system
+echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-0/new_device
+hwclock --hctosys
+
+ifconfig lo up
+
+modprobe 8192cu
+
+# Cron
+/usr/sbin/crond
+
+# Dmesg monitor
+/etc/init.d/mon.sh &
+
+if [ -f /mnt/setup.txt ]; then
+	sed -i 's/\r$//g' /mnt/setup.txt
+	/etc/init.d/setup.sh
+else
+echo OK
+#	/etc/init.d/on.sh &
+fi
