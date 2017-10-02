@@ -2,8 +2,7 @@
 if pidof camera.sh; then kill `pidof camera.sh`; fi
 if pidof record_video; then kill -SIGINT `pidof record_video`; fi
 if pgrep wpa_supplicant; then kill `pgrep wpa_supplicant`; fi
-Server=192.168.1.100
-#modprobe 8192cu
+Server=10.10.10.1
 sleep 1
 if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; exit; fi
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf
