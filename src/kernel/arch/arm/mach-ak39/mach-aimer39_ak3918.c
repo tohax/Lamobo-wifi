@@ -1,4 +1,4 @@
-/* 
+/*
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 as
  * published by the Free Software Foundation.
@@ -82,9 +82,9 @@ static struct flash_platform_data ak39_spiflash_info= {
  * @date: 2014-01-09
  */
 static struct spi_board_info ak39_spi_board_dev[] = {
-	{ 		
-		.modalias = "ak-spiflash",	
-		.bus_num = AKSPI_BUS_NUM1,		
+	{
+		.modalias = "ak-spiflash",
+		.bus_num = AKSPI_BUS_NUM1,
 		.chip_select = AKSPI_ONCHIP_CS,
 		.mode = SPI_MODE_0,
 		.max_speed_hz = 20*1000*1000,
@@ -303,7 +303,7 @@ static struct akotghc_usb_platform_data akotghc_plat_data = {
 		.value	= AK_GPIO_OUT_HIGH,
 		.dir	= AK_GPIO_DIR_OUTPUT,
 		.int_pol = -1,
-	},	
+	},
 	.gpio_pwr_off = {
 		.pin = -1,
 		.pulldown = AK_PULLDOWN_DISABLE,
@@ -611,12 +611,12 @@ static struct akgpio_keys_platform_data gpio_keys_platform_data = {
 	&ak39_usb_otg_hcd_device,
 	&anyka_wifi_device,
 	&soc_camera_interface,
-	&ak39_camera_interface,	
+	&ak39_camera_interface,
 	&ak39_ion_device,
 	&ak39_pcm_device,
 	&ak39_codec_device,
 	&ak39_mmx_device,
-	&ak39_mac_device, 
+	&ak39_mac_device,
 	&ak39_led_pdev,
 	&ak39_gpio_keys_device,
 	&ak39_rtc_device,
@@ -627,8 +627,8 @@ void wdt_enable(void);
 void wdt_keepalive(unsigned int heartbeat);
 
 /**
- * @brief: restart by "reboot" cmd 
- * 
+ * @brief: restart by "reboot" cmd
+ *
  * @author: caolianming
  * @date: 2014-01-09
  */
@@ -653,12 +653,12 @@ static void __init ak3918_init_machine(void)
 	adc1_init();
 
 	spi_register_board_info(ak39_spi_board_dev, ARRAY_SIZE(ak39_spi_board_dev));	
-		
+
 	ak39_spi1_device.dev.platform_data = &ak39_spi1_info;
 
 	ak39_motor0_device.dev.platform_data = &ak39_motor0_pdata;
 	ak39_motor1_device.dev.platform_data = &ak39_motor1_pdata;
-		
+
 	ak39_mmc_device.dev.platform_data = &mmc_plat_data;
 
 	ak39_crypto_device.dev.platform_data = &akcrypto_pdata;
@@ -670,17 +670,17 @@ static void __init ak3918_init_machine(void)
 	ak39_gpio_keys_device.dev.platform_data = &gpio_keys_platform_data;	
 
 	ak39_camera_interface.dev.platform_data = &ak39_camera_info;
-	
+
 	platform_add_devices(ak3918_platform_devices, 
 				ARRAY_SIZE(ak3918_platform_devices));
-	
+
 	l2_init();
-	
+
 	return;
 }
 
 
-MACHINE_START(AK39XX, "Aimer39_AK3918_MB_V1.0.0")
+MACHINE_START(AK39XX, "BananaPi TohaX Edition")
 /* Maintainer: */
 	.atag_offset = 0x100,
 	.fixup = NULL,
@@ -689,8 +689,8 @@ MACHINE_START(AK39XX, "Aimer39_AK3918_MB_V1.0.0")
 	.init_irq = ak39_init_irq,
 	.init_machine = ak3918_init_machine,
 	.init_early = NULL,
-	.timer = &ak39_timer, 
+	.timer = &ak39_timer,
     .restart = ak39_restart,
-    
+
 MACHINE_END
 

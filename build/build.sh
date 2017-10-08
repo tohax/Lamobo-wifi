@@ -46,10 +46,10 @@ build_kernel()
     $MAKE O=$DEV_ROOT/output/kernel LOCALVERSION= -j$NCPU modules
     $MAKE O=$DEV_ROOT/output/kernel LOCALVERSION= -j$NCPU modules_prepare
 
-#    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtl8192cu-fixes
+#    cd /root/rtl8152
 #    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel modules
-#    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel strip
-#    $CP 8192cu.ko $DEV_ROOT/src/librootfs/akwifilib/lib/modules/3.4.35
+    #$MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel strip
+#    $CP r8152.ko $DEV_ROOT/src/librootfs/akwifilib/lib/modules/3.4.35
 }
 
 clean_kernel()

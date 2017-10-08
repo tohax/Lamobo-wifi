@@ -34,7 +34,7 @@
 void ak39_jump_to_rom(unsigned long addr)
 {
         __asm__ __volatile__(
-        "1: mrc  p15, 0, pc, c7, c14, 3\n\t"   
+        "1: mrc  p15, 0, pc, c7, c14, 3\n\t"
         "bne 1b\n\t"
         "mov %0, #0x0\n\t"
         "mcr p15, 0, %0, c8, c7, 0\n\t"
@@ -88,7 +88,7 @@ void ak39_reboot_sys_by_soft(void)
 	REG32(AK_VA_SYSCTRL + 0x58) = RESET_MULTI1;
 	REG32(AK_VA_SYSCTRL + 0x14) = RESET_MULTI2;
 	printk("After reset multiple-function\n");
-	 
+
 	/* reset share pin control */
 	REG32(AK_VA_SYSCTRL + 0x78) = RESET_SHARE1;
 	REG32(AK_VA_SYSCTRL + 0x74) = RESET_SHARE2;

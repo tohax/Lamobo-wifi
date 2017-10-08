@@ -15,7 +15,7 @@
 #include <plat/l2.h>
 #include <plat/l2_exebuf.h>
 
-void check_poweroff(void);
+//void check_poweroff(void);
 
 static suspend_state_t target_state;
 
@@ -46,21 +46,21 @@ void L2_LINK(standby) L2FUNC_NAME(standby)(unsigned long param1,
     unsigned long param2,unsigned long param3, unsigned long param4)
 {
 	unsigned long val;
-	
+
 	// invalidate and disable mmu
     DISABLE_CACHE_MMU();
-	
+
 	// check this bit and unitil both are empty 
 	while(!((REG32(PHY_RAM_CFG_REG4) & (FIFO_R_EMPTY | FIFO_CMD_EMPTY)) == (FIFO_R_EMPTY | FIFO_CMD_EMPTY)))
 		;
-	
+
 	// setup periodic of refresh interval and disable auto-refresh
     REG32(PHY_RAM_CFG_REG4) &= ~(AUTO_REFRESH_EN);
 
     // send all bank precharge
     DDR2_ENTER_SELFREFRESH();
     PM_DELAY(0x10);//at least more than 1 tck
-    
+
 	// set sdram mode before enter standby
 	val = REG32(0x2000e000);
 	REG32(0x2000e000) |= (0x3 << 0);
@@ -87,7 +87,7 @@ void L2_LINK(standby) L2FUNC_NAME(standby)(unsigned long param1,
     
     // exit DDR2 self-refresch
     DDR2_EXIT_SELFREFRESH();
-	
+
 	// send auto refresh and open odt high
     DDR2_ENTER_AUTOREFRESH();
 
@@ -102,22 +102,22 @@ void L2_LINK(standby) L2FUNC_NAME(standby)(unsigned long param1,
 static int ak39_pm_enter(suspend_state_t state)
 {
 	unsigned long flags;
-	
+
 	local_irq_save(flags);
 	ak39_pm_debug_init();
 	flush_cache_all();
 
 	// change from low to normal mode  before enter standby if current is low mode 
 	//cpu_freq_suspend_check();
-	
+
 	SPECIFIC_L2BUF_EXEC(standby, 0,0,0,0);
 
 	// check power off
-	check_poweroff();	
+//	check_poweroff();
 
 	// restore low mode
 	//cpu_freq_resume_check();
-	
+
 	local_irq_restore(flags);
 	return 0;
 }
@@ -151,4 +151,3 @@ int __init ak39_pm_init(void)
 	return 0;
 }
 arch_initcall(ak39_pm_init);
-
