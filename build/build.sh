@@ -32,7 +32,7 @@ config_kernel()
     cd $DEV_ROOT/src/kernel
     $MKDIR $DEV_ROOT/output/kernel
     $MAKE O=$DEV_ROOT/output/kernel aimer39_ak3918_D1_defconfig
-    $MAKE O=$DEV_ROOT/output/kernel menuconfig
+#    $MAKE O=$DEV_ROOT/output/kernel menuconfig
 }
 
 build_kernel()
@@ -239,7 +239,7 @@ pack_basic()
     cd $DEV_ROOT/output
     $RM burntool
     $MKDIR burntool
-    $CP ../tool/burntool/* burntool/
+    $CP ../src/burntool/* burntool/
     $CP zImage burntool/
     $CP root.sqsh4 burntool/
     $CP root.jffs2 burntool/
