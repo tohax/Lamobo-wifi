@@ -21,6 +21,6 @@ if [ -f /mnt/setup.txt ]; then
 	sed -i 's/\r$//g' /mnt/setup.txt
 	/etc/init.d/setup.sh
 else
-echo OK
-#	/etc/init.d/on.sh &
+#echo OK
+	/etc/init.d/on.sh &
 fi
