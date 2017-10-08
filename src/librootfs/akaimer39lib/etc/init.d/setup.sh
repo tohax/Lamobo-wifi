@@ -1,5 +1,5 @@
 #!/bin/sh
-Server=192.168.1.100
+Server=10.10.10.1
 echo heartbeat > /sys/class/leds/g_led/trigger
 #IP
         if [[ "`cat /mnt/setup.txt | grep IP  | cut -d "=" -f 2`" != "" ]]; then
@@ -18,7 +18,6 @@ chmod 700 /etc/dropbear
 dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
 echo dietpi > /etc/.rsync
 chmod 600 /etc/.rsync
-#modprobe 8192cu
 echo 1 > /sys/class/leds/r_led/brightness
 while [ ! -d /sys/class/net/wlan0 ]
 do
