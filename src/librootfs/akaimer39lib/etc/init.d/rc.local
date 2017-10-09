@@ -17,13 +17,15 @@ modprobe 8192cu
 # Dmesg monitor
 /etc/init.d/mon.sh &
 
+# Log
+klogd -c 1
+syslogd -O /etc/log/messages
+
+echo "5120" > /proc/sys/vm/min_free_kbytes
+
 if [ -f /mnt/setup.txt ]; then
 	sed -i 's/\r$//g' /mnt/setup.txt
 	/etc/init.d/setup.sh
 else
-<<<<<<< HEAD
-#echo OK
-=======
->>>>>>> 11e4b827329220fd8c805202201f3261a86ec16b
 	/etc/init.d/on.sh &
 fi
