@@ -1,0 +1,6 @@
+IP=192.168.1.200
+Server=192.168.1.208
+GW=192.168.1.1
+AP=TP
+PASS=acurarsx
+HOST=007
