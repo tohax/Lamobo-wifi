@@ -37,7 +37,6 @@
 #include <plat-anyka/gpio_keys.h>
 #include <plat-anyka/bat.h>
 
-#include <plat-anyka/ak_motor.h>
 #include "cpu.h"
 #include "irq.h"
 #include <mach/adc.h>
@@ -90,132 +89,6 @@ static struct spi_board_info ak39_spi_board_dev[] = {
 		.max_speed_hz = 20*1000*1000,
 		.platform_data = &ak39_spiflash_info,
 	},
-};
-
-
-/**
- * @brief: motor0 device info
- * 
- * @author: lixinhai
- * @date: 2014-01-09
- */
-static struct ak_motor_plat_data ak39_motor0_pdata = {
-		.gpio_phase[0] = {
-			.pin = AK_GPIO_37,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-		.gpio_phase[1] = {
-			.pin = AK_GPIO_38,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-		.gpio_phase[2] = {
-			.pin = AK_GPIO_39,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-		.gpio_phase[3] = {
-			.pin = AK_GPIO_40,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-
-		.gpio_hit[0] = {
-			.pin = AK_GPIO_62,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= -1,
-			.dir	= AK_GPIO_DIR_INPUT,
-			.int_pol = -1,
-		},
-		.gpio_hit[1] ={
-			.pin = AK_GPIO_63,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= -1,
-			.dir	= AK_GPIO_DIR_INPUT,
-			.int_pol = -1,
-		},
-	.irq_hit_type[0] = IRQ_TYPE_LEVEL_LOW,
-	.irq_hit_type[1] = IRQ_TYPE_LEVEL_LOW,
-
-	.angular_speed = 100,	/* angle/s */
-};
-
-
-/**
- * @brief: motor1 device info
- * 
- * @author: lixinhai
- * @date: 2014-01-09
- */
-static struct ak_motor_plat_data ak39_motor1_pdata = {
-		.gpio_phase[0] = {
-			.pin = AK_GPIO_56,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-		.gpio_phase[1] = {
-			.pin = AK_GPIO_58,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-		.gpio_phase[2] = {
-			.pin = AK_GPIO_4,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-		.gpio_phase[3] = {
-			.pin = AK_GPIO_50,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= AK_GPIO_OUT_LOW,
-			.dir	= AK_GPIO_DIR_OUTPUT,
-			.int_pol = -1,
-		},
-
-		.gpio_hit[0] = {
-			.pin = AK_GPIO_52,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= -1,
-			.dir	= AK_GPIO_DIR_INPUT,
-			.int_pol = -1,
-		},
-		.gpio_hit[1] ={
-			.pin = AK_GPIO_30,
-			.pulldown = -1,
-			.pullup	= -1,
-			.value	= -1,
-			.dir	= AK_GPIO_DIR_INPUT,
-			.int_pol = -1,
-		},
-	.irq_hit_type[0] = IRQ_TYPE_LEVEL_LOW,
-	.irq_hit_type[1] = IRQ_TYPE_LEVEL_LOW,
-
-	.angular_speed = 100,	/* angle/s */
 };
 
 
@@ -488,20 +361,7 @@ static struct ak_led_data leds[] = {
 		.int_pol	= -1,
 		}
 	},
-{
-        .name           = "reset",
-        .def_trigger    = "default-on",
-        .gpio           = {
-                .pin            = AK_GPIO_29,
-                .pulldown       = -1,
-                .pullup         = -1, //AK_PULLUP_DISABLE,
-                .value          = AK_GPIO_OUT_LOW,
-                .dir            = AK_GPIO_DIR_OUTPUT,
-                .int_pol        = -1,
-                }
-        },
 };
-
 static struct ak_led_pdata led_pdata = {
 	.leds		= leds,
 	.nr_led		= ARRAY_SIZE(leds),
@@ -551,7 +411,7 @@ static struct ak_camera_pdata ak39_camera_info = {
 
 /**
  * @brief: GPIO buttons platform data and initialis status
- * 
+ *
  * @author: caolianming
  * @date: 2014-01-09
  */
@@ -562,7 +422,7 @@ static struct gpio_keys_button gpio_keys_button[] = {
 		.gpio			= AK_GPIO_0,
 		.active_low		= 1,
 		.wakeup			= 1,
-		.debounce_interval	= 30, /* ms */
+		.debounce_interval	= 30,
 		.desc			= "boot0",
 		.pullup			= AK_PULLUP_ENABLE,
 		.pulldown		= -1,
@@ -575,13 +435,26 @@ static struct gpio_keys_button gpio_keys_button[] = {
 		.gpio			= AK_GPIO_62,
 		.active_low		= 1,
 		.wakeup			= 0,
-		.debounce_interval	= 30, /* ms */
-		.desc			= "wifi",
+		.debounce_interval	= 30,
+		.desc			= "reboot",
 		.pullup			= AK_PULLUP_ENABLE,
 		.pulldown		= -1,
 		.dir			= AK_GPIO_DIR_INPUT,
 		.int_pol		= AK_GPIO_INT_LOWLEVEL,
 	},
+	{
+                .code                   = KEY_2,
+                .type                   = EV_KEY,
+                .gpio                   = AK_GPIO_38,
+                .active_low             = 1,
+                .wakeup                 = 0,
+                .debounce_interval      = 30,
+                .desc                   = "charge",
+		.pullup                 = AK_PULLUP_ENABLE,
+                .pulldown               = -1,
+                .dir                    = AK_GPIO_DIR_INPUT,
+                .int_pol                = AK_GPIO_INT_LOWLEVEL,
+        },
 };
 
 static struct akgpio_keys_platform_data gpio_keys_platform_data = {
@@ -601,25 +474,23 @@ static struct akgpio_keys_platform_data gpio_keys_platform_data = {
 	&akfha_char_device,
 	&ak39_uart0_device,
 	&ak39_uart1_device,
-	&ak39_motor0_device,
-	&ak39_motor1_device,
 	&ak39_spi1_device,
 	&ak39_mmc_device,
 	&ak39_i2c_device,
 	&ak39_custom_gpio,
 	&ak39_usb_udc_device,
 	&ak39_usb_otg_hcd_device,
-	&anyka_wifi_device,
+	//&anyka_wifi_device,
 	&soc_camera_interface,
 	&ak39_camera_interface,
 	&ak39_ion_device,
 	&ak39_pcm_device,
 	&ak39_codec_device,
 	&ak39_mmx_device,
-	&ak39_mac_device,
+	//&ak39_mac_device,
 	&ak39_led_pdev,
 	&ak39_gpio_keys_device,
-	&ak39_rtc_device,
+	//&ak39_rtc_device,
 	&ak39_crypto_device,
 };
 
@@ -643,8 +514,8 @@ static void ak39_restart(char str, const char *cmd)
 
 
 /**
- * @brief: initial ak3918 machine 
- * 
+ * @brief: initial ak3918 machine
+ *
  * @author: caolianming
  * @date: 2014-01-09
  */
@@ -652,26 +523,24 @@ static void __init ak3918_init_machine(void)
 {
 	adc1_init();
 
-	spi_register_board_info(ak39_spi_board_dev, ARRAY_SIZE(ak39_spi_board_dev));	
+	spi_register_board_info(ak39_spi_board_dev, ARRAY_SIZE(ak39_spi_board_dev));
 
 	ak39_spi1_device.dev.platform_data = &ak39_spi1_info;
-
-	ak39_motor0_device.dev.platform_data = &ak39_motor0_pdata;
-	ak39_motor1_device.dev.platform_data = &ak39_motor1_pdata;
 
 	ak39_mmc_device.dev.platform_data = &mmc_plat_data;
 
 	ak39_crypto_device.dev.platform_data = &akcrypto_pdata;
 
 	ak39_usb_otg_hcd_device.dev.platform_data = &akotghc_plat_data;
-	ak39_mac_device.dev.platform_data = &ak39_mac_pdata;
+
+	//ak39_mac_device.dev.platform_data = &ak39_mac_pdata;
 
 	ak39_led_pdev.dev.platform_data = &led_pdata;
-	ak39_gpio_keys_device.dev.platform_data = &gpio_keys_platform_data;	
+	ak39_gpio_keys_device.dev.platform_data = &gpio_keys_platform_data;
 
 	ak39_camera_interface.dev.platform_data = &ak39_camera_info;
 
-	platform_add_devices(ak3918_platform_devices, 
+	platform_add_devices(ak3918_platform_devices,
 				ARRAY_SIZE(ak3918_platform_devices));
 
 	l2_init();
