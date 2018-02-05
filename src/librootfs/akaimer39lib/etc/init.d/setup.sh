@@ -38,6 +38,6 @@ rm -rf /mnt/*
 echo '-wlan0 root:root 0660 $/etc/init.d/off.sh' >> /etc/mdev.conf
 echo 'wlan0 root:root 0660 @/etc/init.d/on.sh' >> /etc/mdev.conf
 echo "Setup finished" >> /etc/`hostname`_setup
-rsync -avzWm --no-o --no-g --size-only --password-file=/etc/.rsync /etc/`hostname`_setup root@$Server::video/log/`date +%Y%m%d`/
+rsync -avzWm --no-o --no-g --size-only --password-file=/etc/.rsync /etc/`hostname`_setup root@$Server::log/`date +%Y%m%d`/
 rm -f /etc/`hostname`_setup
 reboot

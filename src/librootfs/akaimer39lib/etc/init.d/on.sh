@@ -5,7 +5,7 @@ Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
 sleep 1
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf 2>/dev/null
 /etc/init.d/wifi.sh 1>/dev/null
-rdate -s time.nist.gov #$Server
+rdate -s time.nist.gov
 hwclock --systohc
 echo heartbeat > /sys/class/leds/r_led/trigger
 sleep 1
@@ -13,9 +13,9 @@ echo heartbeat > /sys/class/leds/g_led/trigger
 time=`date +%Y%m%d`
 echo `date` > /etc/_ON_`hostname`.txt
 find /mnt/ -name "*index" -exec rm {} \;
-rsync -avzW --remove-source-files --password-file=/etc/.rsync /etc/_ON_`hostname`.txt root@$Server::video/log/$time/
-rsync -avzW --progress -4 --compress-level=5 --remove-source-files --log-file=/etc/`hostname`.txt --password-file=/etc/.rsync /mnt/ root@$Server::video/oneday/
-rsync -avzW --remove-source-files --password-file=/etc/.rsync /etc/`hostname`.txt root@$Server::video/log/$time/
+rsync -avzW -4 --remove-source-files --password-file=/etc/.rsync /etc/_ON_`hostname`.txt root@$Server::log/$time/
+rsync -avzW -4 --progress --remove-source-files --log-file=/etc/`hostname`.txt --password-file=/etc/.rsync /mnt/ root@$Server::video/oneday/
+rsync -avzW -4 --remove-source-files --password-file=/etc/.rsync /etc/`hostname`.txt root@$Server::log/$time/
 find /mnt/[1-9]* -type d -delete 2>/dev/null
 echo none > /sys/class/leds/g_led/trigger
 echo none > /sys/class/leds/r_led/trigger
