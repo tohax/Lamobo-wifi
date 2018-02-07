@@ -9,7 +9,7 @@ hwclock --hctosys
 
 /usr/bin/telnetd
 
-modprobe 8192cu
+#modprobe 8192cu
 modprobe 8188eu
 
 # Cron
