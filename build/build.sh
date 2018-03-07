@@ -266,7 +266,7 @@ EOF
 
 build_all()
 {
-#    build_tools
+    build_tools
     $MKDIR $DEV_ROOT/output/local/bin
     $MKDIR $DEV_ROOT/output/local/lib
     config_kernel

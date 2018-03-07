@@ -21,7 +21,7 @@
 
 #if defined (USE_CAMERA_OV2643) || defined (CONFIG_SENSOR_OV2643)
 
-#define CAM_EN_LEVEL            0    
+#define CAM_EN_LEVEL            0
 #define CAM_RESET_LEVEL         0
 
 #define CAMERA_SCCB_ADDR        0x60
@@ -32,6 +32,7 @@
 static T_CAMERA_TYPE camera_ov2643_type = CAMERA_2M;
 static T_NIGHT_MODE night_mode = CAMERA_DAY_MODE;
 static T_CAMERA_MODE s_ov2643_CurMode = CAMERA_MODE_VGA;
+
 
 static T_VOID camera_setbit(T_U8 reg, T_U8 bit, T_U8 value)
 {
@@ -534,7 +535,7 @@ static T_VOID cam_ov2643_set_mirror(T_CAMERA_MIRROR mirror)
             camera_setbit(0x12, 5, 1);
             break;
         default:
-            akprintf(C1, M_DRVSYS, "set mirror parameter error!\n");
+	    //akprintf(C1, M_DRVSYS, "set mirror parameter error!\n");
             break;
     }
 }
