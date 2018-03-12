@@ -60,34 +60,22 @@
 
 <p>Currently available applets include:</p>
 
-<pre><code>        [, [[, acpid, adjtimex, arp, arping, ash, awk, base64, basename,
-        brctl, cat, chattr, chgrp, chmod, chown, chroot, chvt, cksum, clear,
-        cmp, comm, conspy, cp, crond, crontab, cttyhack, cut, date, dc, dd,
-        deallocvt, depmod, devmem, df, diff, dirname, dmesg, dnsd,
-        dnsdomainname, dos2unix, du, dumpkmap, echo, ed, egrep, env,
-        ether-wake, expand, expr, factor, fakeidentd, false, fbsplash,
-        fdisk, fgconsole, fgrep, find, fold, free, fsck, fsync, fuser,
-        getty, grep, groups, halt, head, hostid, hostname, hush, hwclock,
-        i2cdetect, i2cdump, i2cget, i2cset, id, ifconfig, ifdown, ifenslave,
-        ifplugd, ifup, inetd, init, insmod, install, iostat, ip, ipaddr,
-        iplink, ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
-        killall5, less, link, linux32, linux64, linuxrc, ln, loadfont,
-        loadkmap, login, logname, logread, ls, lsattr, lsmod, lsof, lsscsi,
-        lsusb, makedevs, man, md5sum, mdev, microcom, mkdir, mkdosfs,
-        mke2fs, mkfs.ext2, mkfs.minix, mkfs.vfat, mknod, modinfo, modprobe,
-        more, mount, mpstat, mt, mv, nameif, nbd-client, nc, netstat, nice,
-        nl, nmeter, nohup, nproc, nslookup, ntpd, od, openvt, passwd, paste,
-        patch, pgrep, pidof, ping, ping6, pkill, pmap, poweroff, powertop,
-        printenv, printf, ps, pscan, pstree, pwd, pwdx, rdate, readlink,
-        realpath, reboot, reset, resize, rm, rmdir, rmmod, route, rtcwake,
-        sed, seq, setconsole, setfont, setkeycodes, setlogcons, setpriv, sh,
-        sha1sum, sha256sum, sha3sum, sha512sum, showkey, shred, shuf,
-        slattach, sleep, smemcap, sort, split, ssl_client, stat, strings,
-        stty, sum, sysctl, syslogd, tac, tail, tcpsvd, tee, test, time,
-        timeout, top, touch, tr, true, truncate, tty, tune2fs, udpsvd,
-        uevent, umount, uname, unexpand, uniq, unix2dos, unlink, uptime,
-        usleep, uudecode, uuencode, vi, volname, watch, watchdog, wc, which,
-        whoami, whois, xargs, yes, zcip</code></pre>
+<pre><code>        acpid, adjtimex, arp, arping, ash, awk, basename, bash, cat, chattr,
+        chmod, chroot, chvt, clear, cmp, cp, crond, crontab, cttyhack, cut,
+        date, dd, deallocvt, depmod, devmem, df, diff, dmesg, du, dumpkmap,
+        echo, ed, egrep, env, false, fgconsole, fgrep, find, free, fsck,
+        fuser, getty, grep, halt, head, hostname, hwclock, ifconfig, ifdown,
+        ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr, iplink,
+        ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
+        killall5, less, loadfont, loadkmap, login, ls, lsattr, lsmod, lsof,
+        lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2, mkfs.vfat,
+        mknod, modinfo, modprobe, more, mount, mv, nc, nslookup, nuke, od,
+        openvt, passwd, paste, patch, pgrep, pidof, ping, pkill, poweroff,
+        printenv, printf, ps, pstree, pwd, rdate, reboot, reset, resize,
+        resume, rm, rmdir, rmmod, route, run-init, sed, seq, setconsole,
+        setfont, setkeycodes, setlogcons, sh, showkey, slattach, sleep,
+        ssl_client, sysctl, tail, tee, top, touch, true, tty, tune2fs,
+        uevent, umount, vi, watch, wget, which, xargs, yes</code></pre>
 
 <h1 id="COMMAND-DESCRIPTIONS">COMMAND DESCRIPTIONS</h1>
 
@@ -129,22 +117,16 @@
 <p>awk [OPTIONS] [AWK_PROGRAM] [FILE]...</p>
 
 </dd>
-<dt id="base64"><b>base64</b></dt>
-<dd>
-
-<p>base64 [-d] [FILE]</p>
-
-</dd>
 <dt id="basename"><b>basename</b></dt>
 <dd>
 
 <p>basename FILE [SUFFIX]</p>
 
 </dd>
-<dt id="brctl"><b>brctl</b></dt>
+<dt id="bash"><b>bash</b></dt>
 <dd>
 
-<p>brctl COMMAND [BRIDGE [INTERFACE]]</p>
+<p>bash [-/+OPTIONS] [-/+o OPT]... [-c &#39;SCRIPT&#39; [ARG0 [ARGS]] / FILE [ARGS]]</p>
 
 </dd>
 <dt id="cat"><b>cat</b></dt>
@@ -156,25 +138,13 @@
 <dt id="chattr"><b>chattr</b></dt>
 <dd>
 
-<p>chattr [-R] [-+=AacDdijsStTu] [-v VERSION] [FILE]...</p>
-
-</dd>
-<dt id="chgrp"><b>chgrp</b></dt>
-<dd>
-
-<p>chgrp [-RhLHP]... GROUP FILE...</p>
+<p>chattr [-R] [-v VERSION] [-+=AacDdijsStTu] FILE...</p>
 
 </dd>
 <dt id="chmod"><b>chmod</b></dt>
 <dd>
 
 <p>chmod [-R] MODE[,MODE]... FILE...</p>
-
-</dd>
-<dt id="chown"><b>chown</b></dt>
-<dd>
-
-<p>chown [-Rh]... USER[:[GRP]] FILE...</p>
 
 </dd>
 <dt id="chroot"><b>chroot</b></dt>
@@ -189,12 +159,6 @@
 <p>chvt N</p>
 
 </dd>
-<dt id="cksum"><b>cksum</b></dt>
-<dd>
-
-<p>cksum FILE...</p>
-
-</dd>
 <dt id="clear"><b>clear</b></dt>
 <dd>
 
@@ -205,18 +169,6 @@
 <dd>
 
 <p>cmp [-l] [-s] FILE1 [FILE2]</p>
-
-</dd>
-<dt id="comm"><b>comm</b></dt>
-<dd>
-
-<p>comm [-123] FILE1 FILE2</p>
-
-</dd>
-<dt id="conspy"><b>conspy</b></dt>
-<dd>
-
-<p>conspy [-vcsndfFQ] [-x COL] [-y LINE] [CONSOLE_NO]</p>
 
 </dd>
 <dt id="cp"><b>cp</b></dt>
@@ -255,12 +207,6 @@
 <p>date [OPTIONS] [+FMT] [TIME]</p>
 
 </dd>
-<dt id="dc"><b>dc</b></dt>
-<dd>
-
-<p>dc EXPRESSION...</p>
-
-</dd>
 <dt id="dd"><b>dd</b></dt>
 <dd>
 
@@ -297,28 +243,10 @@
 <p>diff [-abBdiNqrTstw] [-L LABEL] [-S FILE] [-U LINES] FILE1 FILE2</p>
 
 </dd>
-<dt id="dirname"><b>dirname</b></dt>
-<dd>
-
-<p>dirname FILENAME</p>
-
-</dd>
 <dt id="dmesg"><b>dmesg</b></dt>
 <dd>
 
 <p>dmesg [-c] [-n LEVEL] [-s SIZE]</p>
-
-</dd>
-<dt id="dnsd"><b>dnsd</b></dt>
-<dd>
-
-<p>dnsd [-dvs] [-c CONFFILE] [-t TTL_SEC] [-p PORT] [-i ADDR]</p>
-
-</dd>
-<dt id="dos2unix"><b>dos2unix</b></dt>
-<dd>
-
-<p>dos2unix [-ud] [FILE]</p>
 
 </dd>
 <dt id="du"><b>du</b></dt>
@@ -342,55 +270,13 @@
 <dt id="ed"><b>ed</b></dt>
 <dd>
 
-<p>ed</p>
+<p>ed [FILE]</p>
 
 </dd>
 <dt id="env"><b>env</b></dt>
 <dd>
 
 <p>env [-iu] [-] [name=value]... [PROG ARGS]</p>
-
-</dd>
-<dt id="ether-wake"><b>ether-wake</b></dt>
-<dd>
-
-<p>ether-wake [-b] [-i IFACE] [-p aa:bb:cc:dd[:ee:ff]/a.b.c.d] MAC</p>
-
-</dd>
-<dt id="expand"><b>expand</b></dt>
-<dd>
-
-<p>expand [-i] [-t N] [FILE]...</p>
-
-</dd>
-<dt id="expr"><b>expr</b></dt>
-<dd>
-
-<p>expr EXPRESSION</p>
-
-</dd>
-<dt id="factor"><b>factor</b></dt>
-<dd>
-
-<p>factor [NUMBER]...</p>
-
-</dd>
-<dt id="fakeidentd"><b>fakeidentd</b></dt>
-<dd>
-
-<p>fakeidentd [-fiw] [-b ADDR] [STRING]</p>
-
-</dd>
-<dt id="fbsplash"><b>fbsplash</b></dt>
-<dd>
-
-<p>fbsplash -s IMGFILE [-c] [-d DEV] [-i INIFILE] [-f CMD]</p>
-
-</dd>
-<dt id="fdisk"><b>fdisk</b></dt>
-<dd>
-
-<p>fdisk [-ul] [-C CYLINDERS] [-H HEADS] [-S SECTORS] [-b SSZ] DISK</p>
 
 </dd>
 <dt id="fgconsole"><b>fgconsole</b></dt>
@@ -405,12 +291,6 @@
 <p>find [-HL] [PATH]... [OPTIONS] [ACTIONS]</p>
 
 </dd>
-<dt id="fold"><b>fold</b></dt>
-<dd>
-
-<p>fold [-bs] [-w WIDTH] [FILE]...</p>
-
-</dd>
 <dt id="free"><b>free</b></dt>
 <dd>
 
@@ -421,12 +301,6 @@
 <dd>
 
 <p>fsck [-ANPRTV] [-t FSTYPE] [FS_OPTS] [BLOCKDEV]...</p>
-
-</dd>
-<dt id="fsync"><b>fsync</b></dt>
-<dd>
-
-<p>fsync [-d] FILE...</p>
 
 </dd>
 <dt id="fuser"><b>fuser</b></dt>
@@ -447,12 +321,6 @@
 <p>grep [-HhnlLoqvsriwFE] [-m N] [-A/B/C N] PATTERN/-e PATTERN.../-f FILE [FILE]...</p>
 
 </dd>
-<dt id="groups"><b>groups</b></dt>
-<dd>
-
-<p>groups [USER]</p>
-
-</dd>
 <dt id="halt"><b>halt</b></dt>
 <dd>
 
@@ -465,58 +333,16 @@
 <p>head [OPTIONS] [FILE]...</p>
 
 </dd>
-<dt id="hostid"><b>hostid</b></dt>
-<dd>
-
-<p>hostid</p>
-
-</dd>
 <dt id="hostname"><b>hostname</b></dt>
 <dd>
 
 <p>hostname [OPTIONS] [HOSTNAME | -F FILE]</p>
 
 </dd>
-<dt id="hush"><b>hush</b></dt>
-<dd>
-
-<p>hush [-nxl] [-c &#39;SCRIPT&#39; [ARG0 [ARGS]] / FILE [ARGS]]</p>
-
-</dd>
 <dt id="hwclock"><b>hwclock</b></dt>
 <dd>
 
-<p>hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [-t|--systz] [-l|--localtime] [-u|--utc] [-f|--rtc FILE]</p>
-
-</dd>
-<dt id="i2cdetect"><b>i2cdetect</b></dt>
-<dd>
-
-<p>i2cdetect [-F I2CBUS] [-l] [-y] [-a] [-q|-r] I2CBUS [FIRST LAST]</p>
-
-</dd>
-<dt id="i2cdump"><b>i2cdump</b></dt>
-<dd>
-
-<p>i2cdump [-f] [-r FIRST-LAST] [-y] BUS ADDR [MODE]</p>
-
-</dd>
-<dt id="i2cget"><b>i2cget</b></dt>
-<dd>
-
-<p>i2cget [-f] [-y] BUS CHIP-ADDRESS [DATA-ADDRESS [MODE]]</p>
-
-</dd>
-<dt id="i2cset"><b>i2cset</b></dt>
-<dd>
-
-<p>i2cset [-f] [-y] [-m MASK] BUS CHIP-ADDR DATA-ADDR [VALUE] ... [MODE]</p>
-
-</dd>
-<dt id="id"><b>id</b></dt>
-<dd>
-
-<p>id [OPTIONS] [USER]</p>
+<p>hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [--systz] [--localtime] [-u|--utc] [-f|--rtc FILE]</p>
 
 </dd>
 <dt id="ifconfig"><b>ifconfig</b></dt>
@@ -529,12 +355,6 @@
 <dd>
 
 <p>ifdown [-anmvf] [-i FILE] IFACE...</p>
-
-</dd>
-<dt id="ifenslave"><b>ifenslave</b></dt>
-<dd>
-
-<p>ifenslave [-cdf] MASTER_IFACE SLAVE_IFACE...</p>
 
 </dd>
 <dt id="ifplugd"><b>ifplugd</b></dt>
@@ -565,12 +385,6 @@
 <dd>
 
 <p>insmod FILE [SYMBOL=VALUE]...</p>
-
-</dd>
-<dt id="install"><b>install</b></dt>
-<dd>
-
-<p>install [-cdDsp] [-o USER] [-g GRP] [-m MODE] [-t DIR] [SOURCE]... DEST</p>
 
 </dd>
 <dt id="iostat"><b>iostat</b></dt>
@@ -651,18 +465,6 @@
 <p>less [-EIMmNSh~] [FILE]...</p>
 
 </dd>
-<dt id="link"><b>link</b></dt>
-<dd>
-
-<p>link FILE LINK</p>
-
-</dd>
-<dt id="ln"><b>ln</b></dt>
-<dd>
-
-<p>ln [OPTIONS] TARGET... LINK|DIR</p>
-
-</dd>
 <dt id="loadfont"><b>loadfont</b></dt>
 <dd>
 
@@ -679,18 +481,6 @@
 <dd>
 
 <p>login [-p] [-h HOST] [[-f] USER]</p>
-
-</dd>
-<dt id="logname"><b>logname</b></dt>
-<dd>
-
-<p>logname</p>
-
-</dd>
-<dt id="logread"><b>logread</b></dt>
-<dd>
-
-<p>logread [-fF]</p>
 
 </dd>
 <dt id="ls"><b>ls</b></dt>
@@ -723,28 +513,10 @@
 <p>makedevs [-d device_table] rootdir</p>
 
 </dd>
-<dt id="man"><b>man</b></dt>
-<dd>
-
-<p>man [-aw] [MANPAGE]...</p>
-
-</dd>
-<dt id="md5sum"><b>md5sum</b></dt>
-<dd>
-
-<p>md5sum [-c[sw]] [FILE]...</p>
-
-</dd>
 <dt id="mdev"><b>mdev</b></dt>
 <dd>
 
 <p>mdev [-s]</p>
-
-</dd>
-<dt id="microcom"><b>microcom</b></dt>
-<dd>
-
-<p>microcom [-d DELAY] [-t TIMEOUT] [-s SPEED] [-X] TTY</p>
 
 </dd>
 <dt id="mkdir"><b>mkdir</b></dt>
@@ -769,12 +541,6 @@
 <dd>
 
 <p>mkfs.ext2 [-Fn] [-b BLK_SIZE] [-i INODE_RATIO] [-I INODE_SIZE] [-m RESERVED_PERCENT] [-L LABEL] BLOCKDEV [KBYTES]</p>
-
-</dd>
-<dt id="mkfs.minix"><b>mkfs.minix</b></dt>
-<dd>
-
-<p>mkfs.minix [-c | -l FILE] [-nXX] [-iXX] BLOCKDEV [KBYTES]</p>
 
 </dd>
 <dt id="mkfs.vfat"><b>mkfs.vfat</b></dt>
@@ -813,34 +579,10 @@
 <p>mount [OPTIONS] [-o OPT] DEVICE NODE</p>
 
 </dd>
-<dt id="mpstat"><b>mpstat</b></dt>
-<dd>
-
-<p>mpstat [-A] [-I SUM|CPU|ALL|SCPU] [-u] [-P num|ALL] [INTERVAL [COUNT]]</p>
-
-</dd>
-<dt id="mt"><b>mt</b></dt>
-<dd>
-
-<p>mt [-f device] opcode value</p>
-
-</dd>
 <dt id="mv"><b>mv</b></dt>
 <dd>
 
 <p>mv [-fin] SOURCE DEST or: mv [-fin] SOURCE... DIRECTORY</p>
-
-</dd>
-<dt id="nameif"><b>nameif</b></dt>
-<dd>
-
-<p>nameif [-s] [-c FILE] [IFNAME SELECTOR]...</p>
-
-</dd>
-<dt id="nbd-client"><b>nbd-client</b></dt>
-<dd>
-
-<p>nbd-client HOST PORT BLOCKDEV</p>
 
 </dd>
 <dt id="nc"><b>nc</b></dt>
@@ -849,52 +591,16 @@
 <p>nc [-iN] [-wN] [-l] [-p PORT] [-f FILE|IPADDR PORT] [-e PROG]</p>
 
 </dd>
-<dt id="netstat"><b>netstat</b></dt>
-<dd>
-
-<p>netstat [-ral] [-tuwx] [-enWp]</p>
-
-</dd>
-<dt id="nice"><b>nice</b></dt>
-<dd>
-
-<p>nice [-n ADJUST] [PROG ARGS]</p>
-
-</dd>
-<dt id="nl"><b>nl</b></dt>
-<dd>
-
-<p>nl [OPTIONS] [FILE]...</p>
-
-</dd>
-<dt id="nmeter"><b>nmeter</b></dt>
-<dd>
-
-<p>nmeter [-d MSEC] FORMAT_STRING</p>
-
-</dd>
-<dt id="nohup"><b>nohup</b></dt>
-<dd>
-
-<p>nohup PROG ARGS</p>
-
-</dd>
-<dt id="nproc"><b>nproc</b></dt>
-<dd>
-
-<p>nproc</p>
-
-</dd>
 <dt id="nslookup"><b>nslookup</b></dt>
 <dd>
 
 <p>nslookup [HOST] [SERVER]</p>
 
 </dd>
-<dt id="ntpd"><b>ntpd</b></dt>
+<dt id="nuke"><b>nuke</b></dt>
 <dd>
 
-<p>ntpd [-dnqNwl -I IFACE] [-S PROG] [-p PEER]...</p>
+<p>nuke DIR...</p>
 
 </dd>
 <dt id="od"><b>od</b></dt>
@@ -945,34 +651,16 @@
 <p>ping [OPTIONS] HOST</p>
 
 </dd>
-<dt id="ping6"><b>ping6</b></dt>
-<dd>
-
-<p>ping6 [OPTIONS] HOST</p>
-
-</dd>
 <dt id="pkill"><b>pkill</b></dt>
 <dd>
 
 <p>pkill [-l|-SIGNAL] [-fnovx] [-s SID|-P PPID|PATTERN]</p>
 
 </dd>
-<dt id="pmap"><b>pmap</b></dt>
-<dd>
-
-<p>pmap [-xq] PID</p>
-
-</dd>
 <dt id="poweroff"><b>poweroff</b></dt>
 <dd>
 
 <p>poweroff [-d DELAY] [-n] [-f]</p>
-
-</dd>
-<dt id="powertop"><b>powertop</b></dt>
-<dd>
-
-<p>powertop</p>
 
 </dd>
 <dt id="printenv"><b>printenv</b></dt>
@@ -993,12 +681,6 @@
 <p>ps</p>
 
 </dd>
-<dt id="pscan"><b>pscan</b></dt>
-<dd>
-
-<p>pscan [-cb] [-p MIN_PORT] [-P MAX_PORT] [-t TIMEOUT] [-T MIN_RTT] HOST</p>
-
-</dd>
 <dt id="pstree"><b>pstree</b></dt>
 <dd>
 
@@ -1011,28 +693,10 @@
 <p>pwd</p>
 
 </dd>
-<dt id="pwdx"><b>pwdx</b></dt>
-<dd>
-
-<p>pwdx PID...</p>
-
-</dd>
 <dt id="rdate"><b>rdate</b></dt>
 <dd>
 
 <p>rdate [-s/-p] HOST</p>
-
-</dd>
-<dt id="readlink"><b>readlink</b></dt>
-<dd>
-
-<p>readlink [-fnv] FILE</p>
-
-</dd>
-<dt id="realpath"><b>realpath</b></dt>
-<dd>
-
-<p>realpath FILE...</p>
 
 </dd>
 <dt id="reboot"><b>reboot</b></dt>
@@ -1051,6 +715,12 @@
 <dd>
 
 <p>resize</p>
+
+</dd>
+<dt id="resume"><b>resume</b></dt>
+<dd>
+
+<p>resume BLOCKDEV [OFFSET]</p>
 
 </dd>
 <dt id="rm"><b>rm</b></dt>
@@ -1077,16 +747,16 @@
 <p>route [{add|del|delete}]</p>
 
 </dd>
-<dt id="rtcwake"><b>rtcwake</b></dt>
+<dt id="run-init"><b>run-init</b></dt>
 <dd>
 
-<p>rtcwake [-a | -l | -u] [-d DEV] [-m MODE] [-s SEC | -t TIME]</p>
+<p>run-init [-d CAP,CAP...] [-n] [-c CONSOLE_DEV] NEW_ROOT NEW_INIT [ARGS]</p>
 
 </dd>
 <dt id="sed"><b>sed</b></dt>
 <dd>
 
-<p>sed [-inrE] [-f FILE]... [-e CMD]... [FILE]... or: sed [-inrE] CMD [FILE]...</p>
+<p>sed [-i[SFX]] [-nrE] [-f FILE]... [-e CMD]... [FILE]... or: sed [-i[SFX]] [-nrE] CMD [FILE]...</p>
 
 </dd>
 <dt id="seq"><b>seq</b></dt>
@@ -1098,7 +768,7 @@
 <dt id="setconsole"><b>setconsole</b></dt>
 <dd>
 
-<p>setconsole [-r|--reset] [DEVICE]</p>
+<p>setconsole [-r] [DEVICE]</p>
 
 </dd>
 <dt id="setfont"><b>setfont</b></dt>
@@ -1110,7 +780,7 @@
 <dt id="setkeycodes"><b>setkeycodes</b></dt>
 <dd>
 
-<p>setkeycodes SCANCODE KEYCODE...</p>
+<p>setkeycodes { SCANCODE KEYCODE }...</p>
 
 </dd>
 <dt id="setlogcons"><b>setlogcons</b></dt>
@@ -1119,40 +789,10 @@
 <p>setlogcons [N]</p>
 
 </dd>
-<dt id="setpriv"><b>setpriv</b></dt>
-<dd>
-
-<p>setpriv [OPTIONS] PROG [ARGS]</p>
-
-</dd>
 <dt id="sh"><b>sh</b></dt>
 <dd>
 
 <p>sh [-/+OPTIONS] [-/+o OPT]... [-c &#39;SCRIPT&#39; [ARG0 [ARGS]] / FILE [ARGS]]</p>
-
-</dd>
-<dt id="sha1sum"><b>sha1sum</b></dt>
-<dd>
-
-<p>sha1sum [-c[sw]] [FILE]...</p>
-
-</dd>
-<dt id="sha256sum"><b>sha256sum</b></dt>
-<dd>
-
-<p>sha256sum [-c[sw]] [FILE]...</p>
-
-</dd>
-<dt id="sha3sum"><b>sha3sum</b></dt>
-<dd>
-
-<p>sha3sum [-c[sw]] [-a BITS] [FILE]...</p>
-
-</dd>
-<dt id="sha512sum"><b>sha512sum</b></dt>
-<dd>
-
-<p>sha512sum [-c[sw]] [FILE]...</p>
 
 </dd>
 <dt id="showkey"><b>showkey</b></dt>
@@ -1161,22 +801,10 @@
 <p>showkey [-a | -k | -s]</p>
 
 </dd>
-<dt id="shred"><b>shred</b></dt>
-<dd>
-
-<p>shred FILE...</p>
-
-</dd>
-<dt id="shuf"><b>shuf</b></dt>
-<dd>
-
-<p>shuf [-e|-i L-H] [-n NUM] [-o FILE] [-z] [FILE|ARG...]</p>
-
-</dd>
 <dt id="slattach"><b>slattach</b></dt>
 <dd>
 
-<p>slattach [-cehmLF] [-s SPEED] [-p PROTOCOL] DEVICE</p>
+<p>slattach [-ehmLF] [-c SCRIPT] [-s BAUD] [-p PROTOCOL] SERIAL_DEVICE</p>
 
 </dd>
 <dt id="sleep"><b>sleep</b></dt>
@@ -1185,70 +813,16 @@
 <p>sleep [N]...</p>
 
 </dd>
-<dt id="smemcap"><b>smemcap</b></dt>
-<dd>
-
-<p>smemcap &gt;SMEMDATA.TAR</p>
-
-</dd>
-<dt id="sort"><b>sort</b></dt>
-<dd>
-
-<p>sort [-nrugMcszbdfiokt] [-o FILE] [-k start[.offset][opts][,end[.offset][opts]] [-t CHAR] [FILE]...</p>
-
-</dd>
-<dt id="split"><b>split</b></dt>
-<dd>
-
-<p>split [OPTIONS] [INPUT [PREFIX]]</p>
-
-</dd>
 <dt id="ssl_client"><b>ssl_client</b></dt>
 <dd>
 
 <p>ssl_client -s FD [-r FD] [-n SNI]</p>
 
 </dd>
-<dt id="stat"><b>stat</b></dt>
-<dd>
-
-<p>stat [OPTIONS] FILE...</p>
-
-</dd>
-<dt id="strings"><b>strings</b></dt>
-<dd>
-
-<p>strings [-fo] [-t o/d/x] [-n LEN] [FILE]...</p>
-
-</dd>
-<dt id="stty"><b>stty</b></dt>
-<dd>
-
-<p>stty [-a|g] [-F DEVICE] [SETTING]...</p>
-
-</dd>
-<dt id="sum"><b>sum</b></dt>
-<dd>
-
-<p>sum [-rs] [FILE]...</p>
-
-</dd>
 <dt id="sysctl"><b>sysctl</b></dt>
 <dd>
 
-<p>sysctl [OPTIONS] [KEY[=VALUE]]...</p>
-
-</dd>
-<dt id="syslogd"><b>syslogd</b></dt>
-<dd>
-
-<p>syslogd [OPTIONS]</p>
-
-</dd>
-<dt id="tac"><b>tac</b></dt>
-<dd>
-
-<p>tac [FILE]...</p>
+<p>sysctl -p [-enq] [FILE...] / [-enqaw] [KEY[=VALUE]]...</p>
 
 </dd>
 <dt id="tail"><b>tail</b></dt>
@@ -1257,28 +831,10 @@
 <p>tail [OPTIONS] [FILE]...</p>
 
 </dd>
-<dt id="tcpsvd"><b>tcpsvd</b></dt>
-<dd>
-
-<p>tcpsvd [-hEv] [-c N] [-C N[:MSG]] [-b N] [-u USER] [-l NAME] IP PORT PROG</p>
-
-</dd>
 <dt id="tee"><b>tee</b></dt>
 <dd>
 
 <p>tee [-ai] [FILE]...</p>
-
-</dd>
-<dt id="time"><b>time</b></dt>
-<dd>
-
-<p>time [-vpa] [-o FILE] PROG ARGS</p>
-
-</dd>
-<dt id="timeout"><b>timeout</b></dt>
-<dd>
-
-<p>timeout [-t SECS] [-s SIG] PROG ARGS</p>
 
 </dd>
 <dt id="top"><b>top</b></dt>
@@ -1293,18 +849,6 @@
 <p>touch [-c] [-d DATE] [-t DATE] [-r FILE] FILE...</p>
 
 </dd>
-<dt id="tr"><b>tr</b></dt>
-<dd>
-
-<p>tr [-cds] STRING1 [STRING2]</p>
-
-</dd>
-<dt id="truncate"><b>truncate</b></dt>
-<dd>
-
-<p>truncate [-c] -s SIZE FILE...</p>
-
-</dd>
 <dt id="tty"><b>tty</b></dt>
 <dd>
 
@@ -1315,12 +859,6 @@
 <dd>
 
 <p>tune2fs [-c MAX_MOUNT_COUNT] [-i DAYS] [-C MOUNT_COUNT] [-L LABEL] BLOCKDEV</p>
-
-</dd>
-<dt id="udpsvd"><b>udpsvd</b></dt>
-<dd>
-
-<p>udpsvd [-hEv] [-c N] [-u USER] [-l NAME] IP PORT PROG</p>
 
 </dd>
 <dt id="uevent"><b>uevent</b></dt>
@@ -1335,70 +873,10 @@
 <p>umount [OPTIONS] FILESYSTEM|DIRECTORY</p>
 
 </dd>
-<dt id="uname"><b>uname</b></dt>
-<dd>
-
-<p>uname [-amnrspvio]</p>
-
-</dd>
-<dt id="unexpand"><b>unexpand</b></dt>
-<dd>
-
-<p>unexpand [-fa][-t N] [FILE]...</p>
-
-</dd>
-<dt id="uniq"><b>uniq</b></dt>
-<dd>
-
-<p>uniq [-cdu][-f,s,w N] [INPUT [OUTPUT]]</p>
-
-</dd>
-<dt id="unix2dos"><b>unix2dos</b></dt>
-<dd>
-
-<p>unix2dos [-ud] [FILE]</p>
-
-</dd>
-<dt id="unlink"><b>unlink</b></dt>
-<dd>
-
-<p>unlink FILE</p>
-
-</dd>
-<dt id="uptime"><b>uptime</b></dt>
-<dd>
-
-<p>uptime</p>
-
-</dd>
-<dt id="usleep"><b>usleep</b></dt>
-<dd>
-
-<p>usleep N</p>
-
-</dd>
-<dt id="uudecode"><b>uudecode</b></dt>
-<dd>
-
-<p>uudecode [-o OUTFILE] [INFILE]</p>
-
-</dd>
-<dt id="uuencode"><b>uuencode</b></dt>
-<dd>
-
-<p>uuencode [-m] [FILE] STORED_FILENAME</p>
-
-</dd>
 <dt id="vi"><b>vi</b></dt>
 <dd>
 
 <p>vi [OPTIONS] [FILE]...</p>
-
-</dd>
-<dt id="volname"><b>volname</b></dt>
-<dd>
-
-<p>volname [DEVICE]</p>
 
 </dd>
 <dt id="watch"><b>watch</b></dt>
@@ -1407,34 +885,16 @@
 <p>watch [-n SEC] [-t] PROG ARGS</p>
 
 </dd>
-<dt id="watchdog"><b>watchdog</b></dt>
+<dt id="wget"><b>wget</b></dt>
 <dd>
 
-<p>watchdog [-t N[ms]] [-T N[ms]] [-F] DEV</p>
-
-</dd>
-<dt id="wc"><b>wc</b></dt>
-<dd>
-
-<p>wc [-clwL] [FILE]...</p>
+<p>wget [-c|--continue] [--spider] [-q|--quiet] [-O|--output-document FILE] [--header &#39;header: value&#39;] [-Y|--proxy on/off] [-P DIR] [-S|--server-response] [-U|--user-agent AGENT] [-T SEC] URL...</p>
 
 </dd>
 <dt id="which"><b>which</b></dt>
 <dd>
 
 <p>which [COMMAND]...</p>
-
-</dd>
-<dt id="whoami"><b>whoami</b></dt>
-<dd>
-
-<p>whoami</p>
-
-</dd>
-<dt id="whois"><b>whois</b></dt>
-<dd>
-
-<p>whois [-i] [-h SERVER] [-p PORT] NAME...</p>
 
 </dd>
 <dt id="xargs"><b>xargs</b></dt>
@@ -1447,12 +907,6 @@
 <dd>
 
 <p>yes [STRING]</p>
-
-</dd>
-<dt id="zcip"><b>zcip</b></dt>
-<dd>
-
-<p>zcip [OPTIONS] IFACE SCRIPT</p>
 
 </dd>
 </dl>
@@ -1475,9 +929,13 @@
 
 <p>The following people have contributed code to BusyBox whether they know it or not. If you have written code included in BusyBox, you should probably be listed here so you can obtain your bit of eternal glory. If you should be listed here, or the description of what you have done needs more detail, or is incorrect, please send in an update.</p>
 
+
+
 <br>
 
 <p>Emanuele Aina &lt;emanuele.aina@tiscali.it&gt; run-parts</p>
+
+
 
 <br>
 
@@ -1488,11 +946,15 @@
     Lots of tedious effort writing these boring docs that
     nobody is going to actually read.</code></pre>
 
+
+
 <br>
 
 <p>Laurence Anderson &lt;l.d.anderson@warwick.ac.uk&gt;</p>
 
 <pre><code>    rpm2cpio, unzip, get_header_cpio, read_gz interface, rpm</code></pre>
+
+
 
 <br>
 
@@ -1500,11 +962,15 @@
 
 <pre><code>    ftpput, ftpget</code></pre>
 
+
+
 <br>
 
 <p>Edward Betts &lt;edward@debian.org&gt;</p>
 
 <pre><code>    expr, hostid, logname, whoami</code></pre>
+
+
 
 <br>
 
@@ -1512,17 +978,23 @@
 
 <pre><code>    du, nslookup, sort</code></pre>
 
+
+
 <br>
 
 <p>Brian Candler &lt;B.Candler@pobox.com&gt;</p>
 
 <pre><code>    tiny-ls(ls)</code></pre>
 
+
+
 <br>
 
 <p>Randolph Chung &lt;tausq@debian.org&gt;</p>
 
 <pre><code>    fbset, ping, hostname</code></pre>
+
+
 
 <br>
 
@@ -1531,11 +1003,15 @@
 <pre><code>    more(v2), makedevs, dutmp, modularization, auto links file,
     various fixes, Linux Router Project maintenance</code></pre>
 
+
+
 <br>
 
 <p>Jordan Crouse &lt;jordan@cosmicpenguin.net&gt;</p>
 
 <pre><code>    ipcalc</code></pre>
+
+
 
 <br>
 
@@ -1543,17 +1019,23 @@
 
 <pre><code>    tftp client insmod powerpc support</code></pre>
 
+
+
 <br>
 
 <p>Larry Doolittle &lt;ldoolitt@recycle.lbl.gov&gt;</p>
 
 <pre><code>    pristine source directory compilation, lots of patches and fixes.</code></pre>
 
+
+
 <br>
 
 <p>Glenn Engel &lt;glenne@engel.org&gt;</p>
 
 <pre><code>    httpd</code></pre>
+
+
 
 <br>
 
@@ -1562,11 +1044,15 @@
 <pre><code>    Sysklogd (single threaded syslogd, IPC Circular buffer support,
     logread), various fixes.</code></pre>
 
+
+
 <br>
 
 <p>Karl M. Hegbloom &lt;karlheg@debian.org&gt;</p>
 
 <pre><code>    cp_mv.c, the test suite, various fixes to utility.c, &amp;c.</code></pre>
+
+
 
 <br>
 
@@ -1574,11 +1060,15 @@
 
 <pre><code>    mktemp.c</code></pre>
 
+
+
 <br>
 
 <p>Matt Kraai &lt;kraai@alumni.cmu.edu&gt;</p>
 
 <pre><code>    documentation, bugfixes, test suite</code></pre>
+
+
 
 <br>
 
@@ -1586,11 +1076,15 @@
 
 <pre><code>    ipcalc, Red Hat equivalence</code></pre>
 
+
+
 <br>
 
 <p>John Lombardo &lt;john@deltanet.com&gt;</p>
 
 <pre><code>    tr</code></pre>
+
+
 
 <br>
 
@@ -1599,6 +1093,8 @@
 <pre><code>    Common unarchiving code and unarchiving applets, ifupdown, ftpgetput,
     nameif, sed, patch, fold, install, uudecode.
     Various bugfixes, review and apply numerous patches.</code></pre>
+
+
 
 <br>
 
@@ -1613,6 +1109,8 @@
     mv, realpath, rm, sort, tail, touch, uname, watch, arith, human_readable,
     interface, dutmp, ifconfig, route</code></pre>
 
+
+
 <br>
 
 <p>Vladimir Oleynik &lt;dzo@simtreas.ru&gt;</p>
@@ -1622,6 +1120,8 @@
     locale, various fixes
     and irreconcilable critic of everything not perfect.</code></pre>
 
+
+
 <br>
 
 <p>Bruce Perens &lt;bruce@pixar.com&gt;</p>
@@ -1629,11 +1129,15 @@
 <pre><code>    Original author of BusyBox in 1995, 1996. Some of his code can
     still be found hiding here and there...</code></pre>
 
+
+
 <br>
 
 <p>Tim Riker &lt;Tim@Rikers.org&gt;</p>
 
 <pre><code>    bug fixes, member of fan club</code></pre>
+
+
 
 <br>
 
@@ -1641,11 +1145,15 @@
 
 <pre><code>    reset, tons and tons of bug reports and patches.</code></pre>
 
+
+
 <br>
 
 <p>Chip Rosenthal &lt;chip@unicom.com&gt;, &lt;crosenth@covad.com&gt;</p>
 
 <pre><code>    wget - Contributed by permission of Covad Communications</code></pre>
+
+
 
 <br>
 
@@ -1653,17 +1161,23 @@
 
 <pre><code>    Lots of bugs fixes and patches.</code></pre>
 
+
+
 <br>
 
 <p>Gyepi Sam &lt;gyepi@praxis-sw.com&gt;</p>
 
 <pre><code>    Remote logging feature for syslogd</code></pre>
 
+
+
 <br>
 
 <p>Linus Torvalds &lt;torvalds@transmeta.com&gt;</p>
 
 <pre><code>    mkswap, fsck.minix, mkfs.minix</code></pre>
+
+
 
 <br>
 
@@ -1672,11 +1186,15 @@
 <pre><code>    grep, sed, cut, xargs(previous),
     style-guide, new-applet-HOWTO, bug fixes, etc.</code></pre>
 
+
+
 <br>
 
 <p>Charles P. Wright &lt;cpwright@villagenet.com&gt;</p>
 
 <pre><code>    gzip, mini-netcat(nc)</code></pre>
+
+
 
 <br>
 
@@ -1684,11 +1202,15 @@
 
 <pre><code>    tarcat (since removed), loadkmap, various fixes, Debian maintenance</code></pre>
 
+
+
 <br>
 
 <p>Tito Ragusa &lt;farmatito@tiscali.it&gt;</p>
 
 <pre><code>    devfsd and size optimizations in strings, openvt and deallocvt.</code></pre>
+
+
 
 <br>
 
@@ -1696,11 +1218,15 @@
 
 <pre><code>    vi editing mode for ash, various other patches/fixes</code></pre>
 
+
+
 <br>
 
 <p>Roberto A. Foglietta &lt;me@roberto.foglietta.name&gt;</p>
 
 <pre><code>    port: dnsd</code></pre>
+
+
 
 <br>
 
@@ -1708,11 +1234,15 @@
 
 <pre><code>    misc</code></pre>
 
+
+
 <br>
 
 <p>Mike Frysinger &lt;vapier@gentoo.org&gt;</p>
 
 <pre><code>    initial e2fsprogs, printenv, setarch, sum, misc</code></pre>
+
+
 
 <br>
 

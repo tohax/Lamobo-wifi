@@ -81,34 +81,22 @@ been enabled, more detailed usage information will also be available.
 
 Currently available applets include:
 
-	[, [[, acpid, adjtimex, arp, arping, ash, awk, base64, basename,
-	brctl, cat, chattr, chgrp, chmod, chown, chroot, chvt, cksum, clear,
-	cmp, comm, conspy, cp, crond, crontab, cttyhack, cut, date, dc, dd,
-	deallocvt, depmod, devmem, df, diff, dirname, dmesg, dnsd,
-	dnsdomainname, dos2unix, du, dumpkmap, echo, ed, egrep, env,
-	ether-wake, expand, expr, factor, fakeidentd, false, fbsplash,
-	fdisk, fgconsole, fgrep, find, fold, free, fsck, fsync, fuser,
-	getty, grep, groups, halt, head, hostid, hostname, hush, hwclock,
-	i2cdetect, i2cdump, i2cget, i2cset, id, ifconfig, ifdown, ifenslave,
-	ifplugd, ifup, inetd, init, insmod, install, iostat, ip, ipaddr,
-	iplink, ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
-	killall5, less, link, linux32, linux64, linuxrc, ln, loadfont,
-	loadkmap, login, logname, logread, ls, lsattr, lsmod, lsof, lsscsi,
-	lsusb, makedevs, man, md5sum, mdev, microcom, mkdir, mkdosfs,
-	mke2fs, mkfs.ext2, mkfs.minix, mkfs.vfat, mknod, modinfo, modprobe,
-	more, mount, mpstat, mt, mv, nameif, nbd-client, nc, netstat, nice,
-	nl, nmeter, nohup, nproc, nslookup, ntpd, od, openvt, passwd, paste,
-	patch, pgrep, pidof, ping, ping6, pkill, pmap, poweroff, powertop,
-	printenv, printf, ps, pscan, pstree, pwd, pwdx, rdate, readlink,
-	realpath, reboot, reset, resize, rm, rmdir, rmmod, route, rtcwake,
-	sed, seq, setconsole, setfont, setkeycodes, setlogcons, setpriv, sh,
-	sha1sum, sha256sum, sha3sum, sha512sum, showkey, shred, shuf,
-	slattach, sleep, smemcap, sort, split, ssl_client, stat, strings,
-	stty, sum, sysctl, syslogd, tac, tail, tcpsvd, tee, test, time,
-	timeout, top, touch, tr, true, truncate, tty, tune2fs, udpsvd,
-	uevent, umount, uname, unexpand, uniq, unix2dos, unlink, uptime,
-	usleep, uudecode, uuencode, vi, volname, watch, watchdog, wc, which,
-	whoami, whois, xargs, yes, zcip
+	acpid, adjtimex, arp, arping, ash, awk, basename, bash, cat, chattr,
+	chmod, chroot, chvt, clear, cmp, cp, crond, crontab, cttyhack, cut,
+	date, dd, deallocvt, depmod, devmem, df, diff, dmesg, du, dumpkmap,
+	echo, ed, egrep, env, false, fgconsole, fgrep, find, free, fsck,
+	fuser, getty, grep, halt, head, hostname, hwclock, ifconfig, ifdown,
+	ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr, iplink,
+	ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
+	killall5, less, loadfont, loadkmap, login, ls, lsattr, lsmod, lsof,
+	lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2, mkfs.vfat,
+	mknod, modinfo, modprobe, more, mount, mv, nc, nslookup, nuke, od,
+	openvt, passwd, paste, patch, pgrep, pidof, ping, pkill, poweroff,
+	printenv, printf, ps, pstree, pwd, rdate, reboot, reset, resize,
+	resume, rm, rmdir, rmmod, route, run-init, sed, seq, setconsole,
+	setfont, setkeycodes, setlogcons, sh, showkey, slattach, sleep,
+	ssl_client, sysctl, tail, tee, top, touch, true, tty, tune2fs,
+	uevent, umount, vi, watch, wget, which, xargs, yes
 
 =head1 COMMAND DESCRIPTIONS
 
@@ -143,17 +131,13 @@ ash [-/+OPTIONS] [-/+o OPT]... [-c 'SCRIPT' [ARG0 [ARGS]] / FILE [ARGS]]
 
 awk [OPTIONS] [AWK_PROGRAM] [FILE]...
 
-=item B<base64>
-
-base64 [-d] [FILE]
-
 =item B<basename>
 
 basename FILE [SUFFIX]
 
-=item B<brctl>
+=item B<bash>
 
-brctl COMMAND [BRIDGE [INTERFACE]]
+bash [-/+OPTIONS] [-/+o OPT]... [-c 'SCRIPT' [ARG0 [ARGS]] / FILE [ARGS]]
 
 =item B<cat>
 
@@ -161,19 +145,11 @@ cat [-nbvteA] [FILE]...
 
 =item B<chattr>
 
-chattr [-R] [-+=AacDdijsStTu] [-v VERSION] [FILE]...
-
-=item B<chgrp>
-
-chgrp [-RhLHP]... GROUP FILE...
+chattr [-R] [-v VERSION] [-+=AacDdijsStTu] FILE...
 
 =item B<chmod>
 
 chmod [-R] MODE[,MODE]... FILE...
-
-=item B<chown>
-
-chown [-Rh]... USER[:[GRP]] FILE...
 
 =item B<chroot>
 
@@ -183,10 +159,6 @@ chroot NEWROOT [PROG ARGS]
 
 chvt N
 
-=item B<cksum>
-
-cksum FILE...
-
 =item B<clear>
 
 clear
@@ -194,14 +166,6 @@ clear
 =item B<cmp>
 
 cmp [-l] [-s] FILE1 [FILE2]
-
-=item B<comm>
-
-comm [-123] FILE1 FILE2
-
-=item B<conspy>
-
-conspy [-vcsndfFQ] [-x COL] [-y LINE] [CONSOLE_NO]
 
 =item B<cp>
 
@@ -226,10 +190,6 @@ cut [OPTIONS] [FILE]...
 =item B<date>
 
 date [OPTIONS] [+FMT] [TIME]
-
-=item B<dc>
-
-dc EXPRESSION...
 
 =item B<dd>
 
@@ -256,21 +216,9 @@ df [-PkmhTai] [-B SIZE] [FILESYSTEM]...
 
 diff [-abBdiNqrTstw] [-L LABEL] [-S FILE] [-U LINES] FILE1 FILE2
 
-=item B<dirname>
-
-dirname FILENAME
-
 =item B<dmesg>
 
 dmesg [-c] [-n LEVEL] [-s SIZE]
-
-=item B<dnsd>
-
-dnsd [-dvs] [-c CONFFILE] [-t TTL_SEC] [-p PORT] [-i ADDR]
-
-=item B<dos2unix>
-
-dos2unix [-ud] [FILE]
 
 =item B<du>
 
@@ -286,39 +234,11 @@ echo [-neE] [ARG]...
 
 =item B<ed>
 
-ed
+ed [FILE]
 
 =item B<env>
 
 env [-iu] [-] [name=value]... [PROG ARGS]
-
-=item B<ether-wake>
-
-ether-wake [-b] [-i IFACE] [-p aa:bb:cc:dd[:ee:ff]/a.b.c.d] MAC
-
-=item B<expand>
-
-expand [-i] [-t N] [FILE]...
-
-=item B<expr>
-
-expr EXPRESSION
-
-=item B<factor>
-
-factor [NUMBER]...
-
-=item B<fakeidentd>
-
-fakeidentd [-fiw] [-b ADDR] [STRING]
-
-=item B<fbsplash>
-
-fbsplash -s IMGFILE [-c] [-d DEV] [-i INIFILE] [-f CMD]
-
-=item B<fdisk>
-
-fdisk [-ul] [-C CYLINDERS] [-H HEADS] [-S SECTORS] [-b SSZ] DISK
 
 =item B<fgconsole>
 
@@ -328,10 +248,6 @@ fgconsole
 
 find [-HL] [PATH]... [OPTIONS] [ACTIONS]
 
-=item B<fold>
-
-fold [-bs] [-w WIDTH] [FILE]...
-
 =item B<free>
 
 free
@@ -339,10 +255,6 @@ free
 =item B<fsck>
 
 fsck [-ANPRTV] [-t FSTYPE] [FS_OPTS] [BLOCKDEV]...
-
-=item B<fsync>
-
-fsync [-d] FILE...
 
 =item B<fuser>
 
@@ -356,10 +268,6 @@ getty [OPTIONS] BAUD_RATE[,BAUD_RATE]... TTY [TERMTYPE]
 
 grep [-HhnlLoqvsriwFE] [-m N] [-A/B/C N] PATTERN/-e PATTERN.../-f FILE [FILE]...
 
-=item B<groups>
-
-groups [USER]
-
 =item B<halt>
 
 halt [-d DELAY] [-n] [-f]
@@ -368,41 +276,13 @@ halt [-d DELAY] [-n] [-f]
 
 head [OPTIONS] [FILE]...
 
-=item B<hostid>
-
-hostid
-
 =item B<hostname>
 
 hostname [OPTIONS] [HOSTNAME | -F FILE]
 
-=item B<hush>
-
-hush [-nxl] [-c 'SCRIPT' [ARG0 [ARGS]] / FILE [ARGS]]
-
 =item B<hwclock>
 
-hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [-t|--systz] [-l|--localtime] [-u|--utc] [-f|--rtc FILE]
-
-=item B<i2cdetect>
-
-i2cdetect [-F I2CBUS] [-l] [-y] [-a] [-q|-r] I2CBUS [FIRST LAST]
-
-=item B<i2cdump>
-
-i2cdump [-f] [-r FIRST-LAST] [-y] BUS ADDR [MODE]
-
-=item B<i2cget>
-
-i2cget [-f] [-y] BUS CHIP-ADDRESS [DATA-ADDRESS [MODE]]
-
-=item B<i2cset>
-
-i2cset [-f] [-y] [-m MASK] BUS CHIP-ADDR DATA-ADDR [VALUE] ... [MODE]
-
-=item B<id>
-
-id [OPTIONS] [USER]
+hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [--systz] [--localtime] [-u|--utc] [-f|--rtc FILE]
 
 =item B<ifconfig>
 
@@ -411,10 +291,6 @@ ifconfig [-a] interface [address]
 =item B<ifdown>
 
 ifdown [-anmvf] [-i FILE] IFACE...
-
-=item B<ifenslave>
-
-ifenslave [-cdf] MASTER_IFACE SLAVE_IFACE...
 
 =item B<ifplugd>
 
@@ -435,10 +311,6 @@ init
 =item B<insmod>
 
 insmod FILE [SYMBOL=VALUE]...
-
-=item B<install>
-
-install [-cdDsp] [-o USER] [-g GRP] [-m MODE] [-t DIR] [SOURCE]... DEST
 
 =item B<iostat>
 
@@ -494,14 +366,6 @@ killall5 [-l] [-SIG] [-o PID]...
 
 less [-EIMmNSh~] [FILE]...
 
-=item B<link>
-
-link FILE LINK
-
-=item B<ln>
-
-ln [OPTIONS] TARGET... LINK|DIR
-
 =item B<loadfont>
 
 loadfont < font
@@ -513,14 +377,6 @@ loadkmap < keymap
 =item B<login>
 
 login [-p] [-h HOST] [[-f] USER]
-
-=item B<logname>
-
-logname
-
-=item B<logread>
-
-logread [-fF]
 
 =item B<ls>
 
@@ -542,21 +398,9 @@ lsof
 
 makedevs [-d device_table] rootdir
 
-=item B<man>
-
-man [-aw] [MANPAGE]...
-
-=item B<md5sum>
-
-md5sum [-c[sw]] [FILE]...
-
 =item B<mdev>
 
 mdev [-s]
-
-=item B<microcom>
-
-microcom [-d DELAY] [-t TIMEOUT] [-s SPEED] [-X] TTY
 
 =item B<mkdir>
 
@@ -573,10 +417,6 @@ mke2fs [-Fn] [-b BLK_SIZE] [-i INODE_RATIO] [-I INODE_SIZE] [-m RESERVED_PERCENT
 =item B<mkfs.ext2>
 
 mkfs.ext2 [-Fn] [-b BLK_SIZE] [-i INODE_RATIO] [-I INODE_SIZE] [-m RESERVED_PERCENT] [-L LABEL] BLOCKDEV [KBYTES]
-
-=item B<mkfs.minix>
-
-mkfs.minix [-c | -l FILE] [-nXX] [-iXX] BLOCKDEV [KBYTES]
 
 =item B<mkfs.vfat>
 
@@ -602,62 +442,22 @@ more [FILE]...
 
 mount [OPTIONS] [-o OPT] DEVICE NODE
 
-=item B<mpstat>
-
-mpstat [-A] [-I SUM|CPU|ALL|SCPU] [-u] [-P num|ALL] [INTERVAL [COUNT]]
-
-=item B<mt>
-
-mt [-f device] opcode value
-
 =item B<mv>
 
 mv [-fin] SOURCE DEST
 or: mv [-fin] SOURCE... DIRECTORY
 
-=item B<nameif>
-
-nameif [-s] [-c FILE] [IFNAME SELECTOR]...
-
-=item B<nbd-client>
-
-nbd-client HOST PORT BLOCKDEV
-
 =item B<nc>
 
 nc [-iN] [-wN] [-l] [-p PORT] [-f FILE|IPADDR PORT] [-e PROG]
-
-=item B<netstat>
-
-netstat [-ral] [-tuwx] [-enWp]
-
-=item B<nice>
-
-nice [-n ADJUST] [PROG ARGS]
-
-=item B<nl>
-
-nl [OPTIONS] [FILE]...
-
-=item B<nmeter>
-
-nmeter [-d MSEC] FORMAT_STRING
-
-=item B<nohup>
-
-nohup PROG ARGS
-
-=item B<nproc>
-
-nproc
 
 =item B<nslookup>
 
 nslookup [HOST] [SERVER]
 
-=item B<ntpd>
+=item B<nuke>
 
-ntpd [-dnqNwl -I IFACE] [-S PROG] [-p PEER]...
+nuke DIR...
 
 =item B<od>
 
@@ -691,25 +491,13 @@ pidof [OPTIONS] [NAME]...
 
 ping [OPTIONS] HOST
 
-=item B<ping6>
-
-ping6 [OPTIONS] HOST
-
 =item B<pkill>
 
 pkill [-l|-SIGNAL] [-fnovx] [-s SID|-P PPID|PATTERN]
 
-=item B<pmap>
-
-pmap [-xq] PID
-
 =item B<poweroff>
 
 poweroff [-d DELAY] [-n] [-f]
-
-=item B<powertop>
-
-powertop
 
 =item B<printenv>
 
@@ -723,10 +511,6 @@ printf FORMAT [ARG]...
 
 ps
 
-=item B<pscan>
-
-pscan [-cb] [-p MIN_PORT] [-P MAX_PORT] [-t TIMEOUT] [-T MIN_RTT] HOST
-
 =item B<pstree>
 
 pstree [-p] [PID|USER]
@@ -735,21 +519,9 @@ pstree [-p] [PID|USER]
 
 pwd
 
-=item B<pwdx>
-
-pwdx PID...
-
 =item B<rdate>
 
 rdate [-s/-p] HOST
-
-=item B<readlink>
-
-readlink [-fnv] FILE
-
-=item B<realpath>
-
-realpath FILE...
 
 =item B<reboot>
 
@@ -762,6 +534,10 @@ reset
 =item B<resize>
 
 resize
+
+=item B<resume>
+
+resume BLOCKDEV [OFFSET]
 
 =item B<rm>
 
@@ -779,14 +555,14 @@ rmmod MODULE...
 
 route [{add|del|delete}]
 
-=item B<rtcwake>
+=item B<run-init>
 
-rtcwake [-a | -l | -u] [-d DEV] [-m MODE] [-s SEC | -t TIME]
+run-init [-d CAP,CAP...] [-n] [-c CONSOLE_DEV] NEW_ROOT NEW_INIT [ARGS]
 
 =item B<sed>
 
-sed [-inrE] [-f FILE]... [-e CMD]... [FILE]...
-or: sed [-inrE] CMD [FILE]...
+sed [-i[SFX]] [-nrE] [-f FILE]... [-e CMD]... [FILE]...
+or: sed [-i[SFX]] [-nrE] CMD [FILE]...
 
 =item B<seq>
 
@@ -794,7 +570,7 @@ seq [-w] [-s SEP] [FIRST [INC]] LAST
 
 =item B<setconsole>
 
-setconsole [-r|--reset] [DEVICE]
+setconsole [-r] [DEVICE]
 
 =item B<setfont>
 
@@ -802,119 +578,43 @@ setfont FONT [-m MAPFILE] [-C TTY]
 
 =item B<setkeycodes>
 
-setkeycodes SCANCODE KEYCODE...
+setkeycodes { SCANCODE KEYCODE }...
 
 =item B<setlogcons>
 
 setlogcons [N]
 
-=item B<setpriv>
-
-setpriv [OPTIONS] PROG [ARGS]
-
 =item B<sh>
 
 sh [-/+OPTIONS] [-/+o OPT]... [-c 'SCRIPT' [ARG0 [ARGS]] / FILE [ARGS]]
-
-=item B<sha1sum>
-
-sha1sum [-c[sw]] [FILE]...
-
-=item B<sha256sum>
-
-sha256sum [-c[sw]] [FILE]...
-
-=item B<sha3sum>
-
-sha3sum [-c[sw]] [-a BITS] [FILE]...
-
-=item B<sha512sum>
-
-sha512sum [-c[sw]] [FILE]...
 
 =item B<showkey>
 
 showkey [-a | -k | -s]
 
-=item B<shred>
-
-shred FILE...
-
-=item B<shuf>
-
-shuf [-e|-i L-H] [-n NUM] [-o FILE] [-z] [FILE|ARG...]
-
 =item B<slattach>
 
-slattach [-cehmLF] [-s SPEED] [-p PROTOCOL] DEVICE
+slattach [-ehmLF] [-c SCRIPT] [-s BAUD] [-p PROTOCOL] SERIAL_DEVICE
 
 =item B<sleep>
 
 sleep [N]...
 
-=item B<smemcap>
-
-smemcap >SMEMDATA.TAR
-
-=item B<sort>
-
-sort [-nrugMcszbdfiokt] [-o FILE] [-k start[.offset][opts][,end[.offset][opts]] [-t CHAR] [FILE]...
-
-=item B<split>
-
-split [OPTIONS] [INPUT [PREFIX]]
-
 =item B<ssl_client>
 
 ssl_client -s FD [-r FD] [-n SNI]
 
-=item B<stat>
-
-stat [OPTIONS] FILE...
-
-=item B<strings>
-
-strings [-fo] [-t o/d/x] [-n LEN] [FILE]...
-
-=item B<stty>
-
-stty [-a|g] [-F DEVICE] [SETTING]...
-
-=item B<sum>
-
-sum [-rs] [FILE]...
-
 =item B<sysctl>
 
-sysctl [OPTIONS] [KEY[=VALUE]]...
-
-=item B<syslogd>
-
-syslogd [OPTIONS]
-
-=item B<tac>
-
-tac [FILE]...
+sysctl -p [-enq] [FILE...] / [-enqaw] [KEY[=VALUE]]...
 
 =item B<tail>
 
 tail [OPTIONS] [FILE]...
 
-=item B<tcpsvd>
-
-tcpsvd [-hEv] [-c N] [-C N[:MSG]] [-b N] [-u USER] [-l NAME] IP PORT PROG
-
 =item B<tee>
 
 tee [-ai] [FILE]...
-
-=item B<time>
-
-time [-vpa] [-o FILE] PROG ARGS
-
-=item B<timeout>
-
-timeout [-t SECS] [-s SIG] PROG ARGS
 
 =item B<top>
 
@@ -924,14 +624,6 @@ top [-b] [-nCOUNT] [-dSECONDS] [-m]
 
 touch [-c] [-d DATE] [-t DATE] [-r FILE] FILE...
 
-=item B<tr>
-
-tr [-cds] STRING1 [STRING2]
-
-=item B<truncate>
-
-truncate [-c] -s SIZE FILE...
-
 =item B<tty>
 
 tty
@@ -939,10 +631,6 @@ tty
 =item B<tune2fs>
 
 tune2fs [-c MAX_MOUNT_COUNT] [-i DAYS] [-C MOUNT_COUNT] [-L LABEL] BLOCKDEV
-
-=item B<udpsvd>
-
-udpsvd [-hEv] [-c N] [-u USER] [-l NAME] IP PORT PROG
 
 =item B<uevent>
 
@@ -952,73 +640,23 @@ uevent [PROG [ARGS]]
 
 umount [OPTIONS] FILESYSTEM|DIRECTORY
 
-=item B<uname>
-
-uname [-amnrspvio]
-
-=item B<unexpand>
-
-unexpand [-fa][-t N] [FILE]...
-
-=item B<uniq>
-
-uniq [-cdu][-f,s,w N] [INPUT [OUTPUT]]
-
-=item B<unix2dos>
-
-unix2dos [-ud] [FILE]
-
-=item B<unlink>
-
-unlink FILE
-
-=item B<uptime>
-
-uptime
-
-=item B<usleep>
-
-usleep N
-
-=item B<uudecode>
-
-uudecode [-o OUTFILE] [INFILE]
-
-=item B<uuencode>
-
-uuencode [-m] [FILE] STORED_FILENAME
-
 =item B<vi>
 
 vi [OPTIONS] [FILE]...
-
-=item B<volname>
-
-volname [DEVICE]
 
 =item B<watch>
 
 watch [-n SEC] [-t] PROG ARGS
 
-=item B<watchdog>
+=item B<wget>
 
-watchdog [-t N[ms]] [-T N[ms]] [-F] DEV
-
-=item B<wc>
-
-wc [-clwL] [FILE]...
+wget [-c|--continue] [--spider] [-q|--quiet] [-O|--output-document FILE]
+	[--header 'header: value'] [-Y|--proxy on/off] [-P DIR]
+	[-S|--server-response] [-U|--user-agent AGENT] [-T SEC] URL...
 
 =item B<which>
 
 which [COMMAND]...
-
-=item B<whoami>
-
-whoami
-
-=item B<whois>
-
-whois [-i] [-h SERVER] [-p PORT] NAME...
 
 =item B<xargs>
 
@@ -1027,10 +665,6 @@ xargs [OPTIONS] [PROG ARGS]
 =item B<yes>
 
 yes [STRING]
-
-=item B<zcip>
-
-zcip [OPTIONS] IFACE SCRIPT
 
 =back
 

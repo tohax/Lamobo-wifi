@@ -76,34 +76,22 @@ COMMON OPTIONS
 COMMANDS
     Currently available applets include:
 
-            [, [[, acpid, adjtimex, arp, arping, ash, awk, base64, basename,
-            brctl, cat, chattr, chgrp, chmod, chown, chroot, chvt, cksum, clear,
-            cmp, comm, conspy, cp, crond, crontab, cttyhack, cut, date, dc, dd,
-            deallocvt, depmod, devmem, df, diff, dirname, dmesg, dnsd,
-            dnsdomainname, dos2unix, du, dumpkmap, echo, ed, egrep, env,
-            ether-wake, expand, expr, factor, fakeidentd, false, fbsplash,
-            fdisk, fgconsole, fgrep, find, fold, free, fsck, fsync, fuser,
-            getty, grep, groups, halt, head, hostid, hostname, hush, hwclock,
-            i2cdetect, i2cdump, i2cget, i2cset, id, ifconfig, ifdown, ifenslave,
-            ifplugd, ifup, inetd, init, insmod, install, iostat, ip, ipaddr,
-            iplink, ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
-            killall5, less, link, linux32, linux64, linuxrc, ln, loadfont,
-            loadkmap, login, logname, logread, ls, lsattr, lsmod, lsof, lsscsi,
-            lsusb, makedevs, man, md5sum, mdev, microcom, mkdir, mkdosfs,
-            mke2fs, mkfs.ext2, mkfs.minix, mkfs.vfat, mknod, modinfo, modprobe,
-            more, mount, mpstat, mt, mv, nameif, nbd-client, nc, netstat, nice,
-            nl, nmeter, nohup, nproc, nslookup, ntpd, od, openvt, passwd, paste,
-            patch, pgrep, pidof, ping, ping6, pkill, pmap, poweroff, powertop,
-            printenv, printf, ps, pscan, pstree, pwd, pwdx, rdate, readlink,
-            realpath, reboot, reset, resize, rm, rmdir, rmmod, route, rtcwake,
-            sed, seq, setconsole, setfont, setkeycodes, setlogcons, setpriv, sh,
-            sha1sum, sha256sum, sha3sum, sha512sum, showkey, shred, shuf,
-            slattach, sleep, smemcap, sort, split, ssl_client, stat, strings,
-            stty, sum, sysctl, syslogd, tac, tail, tcpsvd, tee, test, time,
-            timeout, top, touch, tr, true, truncate, tty, tune2fs, udpsvd,
-            uevent, umount, uname, unexpand, uniq, unix2dos, unlink, uptime,
-            usleep, uudecode, uuencode, vi, volname, watch, watchdog, wc, which,
-            whoami, whois, xargs, yes, zcip
+            acpid, adjtimex, arp, arping, ash, awk, basename, bash, cat, chattr,
+            chmod, chroot, chvt, clear, cmp, cp, crond, crontab, cttyhack, cut,
+            date, dd, deallocvt, depmod, devmem, df, diff, dmesg, du, dumpkmap,
+            echo, ed, egrep, env, false, fgconsole, fgrep, find, free, fsck,
+            fuser, getty, grep, halt, head, hostname, hwclock, ifconfig, ifdown,
+            ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr, iplink,
+            ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
+            killall5, less, loadfont, loadkmap, login, ls, lsattr, lsmod, lsof,
+            lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2, mkfs.vfat,
+            mknod, modinfo, modprobe, more, mount, mv, nc, nslookup, nuke, od,
+            openvt, passwd, paste, patch, pgrep, pidof, ping, pkill, poweroff,
+            printenv, printf, ps, pstree, pwd, rdate, reboot, reset, resize,
+            resume, rm, rmdir, rmmod, route, run-init, sed, seq, setconsole,
+            setfont, setkeycodes, setlogcons, sh, showkey, slattach, sleep,
+            ssl_client, sysctl, tail, tee, top, touch, true, tty, tune2fs,
+            uevent, umount, vi, watch, wget, which, xargs, yes
 
 COMMAND DESCRIPTIONS
     acpid
@@ -126,28 +114,20 @@ COMMAND DESCRIPTIONS
 
     awk awk [OPTIONS] [AWK_PROGRAM] [FILE]...
 
-    base64
-        base64 [-d] [FILE]
-
     basename
         basename FILE [SUFFIX]
 
-    brctl
-        brctl COMMAND [BRIDGE [INTERFACE]]
+    bash
+        bash [-/+OPTIONS] [-/+o OPT]... [-c 'SCRIPT' [ARG0 [ARGS]] / FILE
+        [ARGS]]
 
     cat cat [-nbvteA] [FILE]...
 
     chattr
-        chattr [-R] [-+=AacDdijsStTu] [-v VERSION] [FILE]...
-
-    chgrp
-        chgrp [-RhLHP]... GROUP FILE...
+        chattr [-R] [-v VERSION] [-+=AacDdijsStTu] FILE...
 
     chmod
         chmod [-R] MODE[,MODE]... FILE...
-
-    chown
-        chown [-Rh]... USER[:[GRP]] FILE...
 
     chroot
         chroot NEWROOT [PROG ARGS]
@@ -155,19 +135,10 @@ COMMAND DESCRIPTIONS
     chvt
         chvt N
 
-    cksum
-        cksum FILE...
-
     clear
         clear
 
     cmp cmp [-l] [-s] FILE1 [FILE2]
-
-    comm
-        comm [-123] FILE1 FILE2
-
-    conspy
-        conspy [-vcsndfFQ] [-x COL] [-y LINE] [CONSOLE_NO]
 
     cp  cp [OPTIONS] SOURCE... DEST
 
@@ -184,8 +155,6 @@ COMMAND DESCRIPTIONS
 
     date
         date [OPTIONS] [+FMT] [TIME]
-
-    dc  dc EXPRESSION...
 
     dd  dd [if=FILE] [of=FILE] [ibs=N] [obs=N] [bs=N] [count=N] [skip=N]
         [seek=N] [conv=notrunc|noerror|sync|fsync] [iflag=skip_bytes]
@@ -204,17 +173,8 @@ COMMAND DESCRIPTIONS
     diff
         diff [-abBdiNqrTstw] [-L LABEL] [-S FILE] [-U LINES] FILE1 FILE2
 
-    dirname
-        dirname FILENAME
-
     dmesg
         dmesg [-c] [-n LEVEL] [-s SIZE]
-
-    dnsd
-        dnsd [-dvs] [-c CONFFILE] [-t TTL_SEC] [-p PORT] [-i ADDR]
-
-    dos2unix
-        dos2unix [-ud] [FILE]
 
     du  du [-aHLdclsxhmk] [FILE]...
 
@@ -224,30 +184,9 @@ COMMAND DESCRIPTIONS
     echo
         echo [-neE] [ARG]...
 
-    ed  ed
+    ed  ed [FILE]
 
     env env [-iu] [-] [name=value]... [PROG ARGS]
-
-    ether-wake
-        ether-wake [-b] [-i IFACE] [-p aa:bb:cc:dd[:ee:ff]/a.b.c.d] MAC
-
-    expand
-        expand [-i] [-t N] [FILE]...
-
-    expr
-        expr EXPRESSION
-
-    factor
-        factor [NUMBER]...
-
-    fakeidentd
-        fakeidentd [-fiw] [-b ADDR] [STRING]
-
-    fbsplash
-        fbsplash -s IMGFILE [-c] [-d DEV] [-i INIFILE] [-f CMD]
-
-    fdisk
-        fdisk [-ul] [-C CYLINDERS] [-H HEADS] [-S SECTORS] [-b SSZ] DISK
 
     fgconsole
         fgconsole
@@ -255,17 +194,11 @@ COMMAND DESCRIPTIONS
     find
         find [-HL] [PATH]... [OPTIONS] [ACTIONS]
 
-    fold
-        fold [-bs] [-w WIDTH] [FILE]...
-
     free
         free
 
     fsck
         fsck [-ANPRTV] [-t FSTYPE] [FS_OPTS] [BLOCKDEV]...
-
-    fsync
-        fsync [-d] FILE...
 
     fuser
         fuser [OPTIONS] FILE or PORT/PROTO
@@ -277,51 +210,24 @@ COMMAND DESCRIPTIONS
         grep [-HhnlLoqvsriwFE] [-m N] [-A/B/C N] PATTERN/-e PATTERN.../-f
         FILE [FILE]...
 
-    groups
-        groups [USER]
-
     halt
         halt [-d DELAY] [-n] [-f]
 
     head
         head [OPTIONS] [FILE]...
 
-    hostid
-        hostid
-
     hostname
         hostname [OPTIONS] [HOSTNAME | -F FILE]
 
-    hush
-        hush [-nxl] [-c 'SCRIPT' [ARG0 [ARGS]] / FILE [ARGS]]
-
     hwclock
-        hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [-t|--systz]
-        [-l|--localtime] [-u|--utc] [-f|--rtc FILE]
-
-    i2cdetect
-        i2cdetect [-F I2CBUS] [-l] [-y] [-a] [-q|-r] I2CBUS [FIRST LAST]
-
-    i2cdump
-        i2cdump [-f] [-r FIRST-LAST] [-y] BUS ADDR [MODE]
-
-    i2cget
-        i2cget [-f] [-y] BUS CHIP-ADDRESS [DATA-ADDRESS [MODE]]
-
-    i2cset
-        i2cset [-f] [-y] [-m MASK] BUS CHIP-ADDR DATA-ADDR [VALUE] ...
-        [MODE]
-
-    id  id [OPTIONS] [USER]
+        hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [--systz]
+        [--localtime] [-u|--utc] [-f|--rtc FILE]
 
     ifconfig
         ifconfig [-a] interface [address]
 
     ifdown
         ifdown [-anmvf] [-i FILE] IFACE...
-
-    ifenslave
-        ifenslave [-cdf] MASTER_IFACE SLAVE_IFACE...
 
     ifplugd
         ifplugd [OPTIONS]
@@ -337,10 +243,6 @@ COMMAND DESCRIPTIONS
 
     insmod
         insmod FILE [SYMBOL=VALUE]...
-
-    install
-        install [-cdDsp] [-o USER] [-g GRP] [-m MODE] [-t DIR] [SOURCE]...
-        DEST
 
     iostat
         iostat [-c] [-d] [-t] [-z] [-k|-m] [ALL|BLOCKDEV...] [INTERVAL
@@ -382,11 +284,6 @@ COMMAND DESCRIPTIONS
     less
         less [-EIMmNSh~] [FILE]...
 
-    link
-        link FILE LINK
-
-    ln  ln [OPTIONS] TARGET... LINK|DIR
-
     loadfont
         loadfont < font
 
@@ -395,12 +292,6 @@ COMMAND DESCRIPTIONS
 
     login
         login [-p] [-h HOST] [[-f] USER]
-
-    logname
-        logname
-
-    logread
-        logread [-fF]
 
     ls  ls [-1AaCxdLHRFplinshrSXvctu] [-w WIDTH] [FILE]...
 
@@ -416,16 +307,8 @@ COMMAND DESCRIPTIONS
     makedevs
         makedevs [-d device_table] rootdir
 
-    man man [-aw] [MANPAGE]...
-
-    md5sum
-        md5sum [-c[sw]] [FILE]...
-
     mdev
         mdev [-s]
-
-    microcom
-        microcom [-d DELAY] [-t TIMEOUT] [-s SPEED] [-X] TTY
 
     mkdir
         mkdir [OPTIONS] DIRECTORY...
@@ -440,9 +323,6 @@ COMMAND DESCRIPTIONS
     mkfs.ext2
         mkfs.ext2 [-Fn] [-b BLK_SIZE] [-i INODE_RATIO] [-I INODE_SIZE] [-m
         RESERVED_PERCENT] [-L LABEL] BLOCKDEV [KBYTES]
-
-    mkfs.minix
-        mkfs.minix [-c | -l FILE] [-nXX] [-iXX] BLOCKDEV [KBYTES]
 
     mkfs.vfat
         mkfs.vfat [-v] [-n LABEL] BLOCKDEV [KBYTES]
@@ -462,44 +342,15 @@ COMMAND DESCRIPTIONS
     mount
         mount [OPTIONS] [-o OPT] DEVICE NODE
 
-    mpstat
-        mpstat [-A] [-I SUM|CPU|ALL|SCPU] [-u] [-P num|ALL] [INTERVAL
-        [COUNT]]
-
-    mt  mt [-f device] opcode value
-
     mv  mv [-fin] SOURCE DEST or: mv [-fin] SOURCE... DIRECTORY
 
-    nameif
-        nameif [-s] [-c FILE] [IFNAME SELECTOR]...
-
-    nbd-client
-        nbd-client HOST PORT BLOCKDEV
-
     nc  nc [-iN] [-wN] [-l] [-p PORT] [-f FILE|IPADDR PORT] [-e PROG]
-
-    netstat
-        netstat [-ral] [-tuwx] [-enWp]
-
-    nice
-        nice [-n ADJUST] [PROG ARGS]
-
-    nl  nl [OPTIONS] [FILE]...
-
-    nmeter
-        nmeter [-d MSEC] FORMAT_STRING
-
-    nohup
-        nohup PROG ARGS
-
-    nproc
-        nproc
 
     nslookup
         nslookup [HOST] [SERVER]
 
-    ntpd
-        ntpd [-dnqNwl -I IFACE] [-S PROG] [-p PEER]...
+    nuke
+        nuke DIR...
 
     od  od [-aBbcDdeFfHhIiLlOovXx] [FILE]
 
@@ -524,20 +375,11 @@ COMMAND DESCRIPTIONS
     ping
         ping [OPTIONS] HOST
 
-    ping6
-        ping6 [OPTIONS] HOST
-
     pkill
         pkill [-l|-SIGNAL] [-fnovx] [-s SID|-P PPID|PATTERN]
 
-    pmap
-        pmap [-xq] PID
-
     poweroff
         poweroff [-d DELAY] [-n] [-f]
-
-    powertop
-        powertop
 
     printenv
         printenv [VARIABLE]...
@@ -547,26 +389,13 @@ COMMAND DESCRIPTIONS
 
     ps  ps
 
-    pscan
-        pscan [-cb] [-p MIN_PORT] [-P MAX_PORT] [-t TIMEOUT] [-T MIN_RTT]
-        HOST
-
     pstree
         pstree [-p] [PID|USER]
 
     pwd pwd
 
-    pwdx
-        pwdx PID...
-
     rdate
         rdate [-s/-p] HOST
-
-    readlink
-        readlink [-fnv] FILE
-
-    realpath
-        realpath FILE...
 
     reboot
         reboot [-d DELAY] [-n] [-f]
@@ -576,6 +405,9 @@ COMMAND DESCRIPTIONS
 
     resize
         resize
+
+    resume
+        resume BLOCKDEV [OFFSET]
 
     rm  rm [-irf] FILE...
 
@@ -588,115 +420,54 @@ COMMAND DESCRIPTIONS
     route
         route [{add|del|delete}]
 
-    rtcwake
-        rtcwake [-a | -l | -u] [-d DEV] [-m MODE] [-s SEC | -t TIME]
+    run-init
+        run-init [-d CAP,CAP...] [-n] [-c CONSOLE_DEV] NEW_ROOT NEW_INIT
+        [ARGS]
 
-    sed sed [-inrE] [-f FILE]... [-e CMD]... [FILE]... or: sed [-inrE] CMD
-        [FILE]...
+    sed sed [-i[SFX]] [-nrE] [-f FILE]... [-e CMD]... [FILE]... or: sed
+        [-i[SFX]] [-nrE] CMD [FILE]...
 
     seq seq [-w] [-s SEP] [FIRST [INC]] LAST
 
     setconsole
-        setconsole [-r|--reset] [DEVICE]
+        setconsole [-r] [DEVICE]
 
     setfont
         setfont FONT [-m MAPFILE] [-C TTY]
 
     setkeycodes
-        setkeycodes SCANCODE KEYCODE...
+        setkeycodes { SCANCODE KEYCODE }...
 
     setlogcons
         setlogcons [N]
 
-    setpriv
-        setpriv [OPTIONS] PROG [ARGS]
-
     sh  sh [-/+OPTIONS] [-/+o OPT]... [-c 'SCRIPT' [ARG0 [ARGS]] / FILE
         [ARGS]]
-
-    sha1sum
-        sha1sum [-c[sw]] [FILE]...
-
-    sha256sum
-        sha256sum [-c[sw]] [FILE]...
-
-    sha3sum
-        sha3sum [-c[sw]] [-a BITS] [FILE]...
-
-    sha512sum
-        sha512sum [-c[sw]] [FILE]...
 
     showkey
         showkey [-a | -k | -s]
 
-    shred
-        shred FILE...
-
-    shuf
-        shuf [-e|-i L-H] [-n NUM] [-o FILE] [-z] [FILE|ARG...]
-
     slattach
-        slattach [-cehmLF] [-s SPEED] [-p PROTOCOL] DEVICE
+        slattach [-ehmLF] [-c SCRIPT] [-s BAUD] [-p PROTOCOL] SERIAL_DEVICE
 
     sleep
         sleep [N]...
 
-    smemcap
-        smemcap >SMEMDATA.TAR
-
-    sort
-        sort [-nrugMcszbdfiokt] [-o FILE] [-k
-        start[.offset][opts][,end[.offset][opts]] [-t CHAR] [FILE]...
-
-    split
-        split [OPTIONS] [INPUT [PREFIX]]
-
     ssl_client
         ssl_client -s FD [-r FD] [-n SNI]
 
-    stat
-        stat [OPTIONS] FILE...
-
-    strings
-        strings [-fo] [-t o/d/x] [-n LEN] [FILE]...
-
-    stty
-        stty [-a|g] [-F DEVICE] [SETTING]...
-
-    sum sum [-rs] [FILE]...
-
     sysctl
-        sysctl [OPTIONS] [KEY[=VALUE]]...
-
-    syslogd
-        syslogd [OPTIONS]
-
-    tac tac [FILE]...
+        sysctl -p [-enq] [FILE...] / [-enqaw] [KEY[=VALUE]]...
 
     tail
         tail [OPTIONS] [FILE]...
 
-    tcpsvd
-        tcpsvd [-hEv] [-c N] [-C N[:MSG]] [-b N] [-u USER] [-l NAME] IP PORT
-        PROG
-
     tee tee [-ai] [FILE]...
-
-    time
-        time [-vpa] [-o FILE] PROG ARGS
-
-    timeout
-        timeout [-t SECS] [-s SIG] PROG ARGS
 
     top top [-b] [-nCOUNT] [-dSECONDS] [-m]
 
     touch
         touch [-c] [-d DATE] [-t DATE] [-r FILE] FILE...
-
-    tr  tr [-cds] STRING1 [STRING2]
-
-    truncate
-        truncate [-c] -s SIZE FILE...
 
     tty tty
 
@@ -704,71 +475,29 @@ COMMAND DESCRIPTIONS
         tune2fs [-c MAX_MOUNT_COUNT] [-i DAYS] [-C MOUNT_COUNT] [-L LABEL]
         BLOCKDEV
 
-    udpsvd
-        udpsvd [-hEv] [-c N] [-u USER] [-l NAME] IP PORT PROG
-
     uevent
         uevent [PROG [ARGS]]
 
     umount
         umount [OPTIONS] FILESYSTEM|DIRECTORY
 
-    uname
-        uname [-amnrspvio]
-
-    unexpand
-        unexpand [-fa][-t N] [FILE]...
-
-    uniq
-        uniq [-cdu][-f,s,w N] [INPUT [OUTPUT]]
-
-    unix2dos
-        unix2dos [-ud] [FILE]
-
-    unlink
-        unlink FILE
-
-    uptime
-        uptime
-
-    usleep
-        usleep N
-
-    uudecode
-        uudecode [-o OUTFILE] [INFILE]
-
-    uuencode
-        uuencode [-m] [FILE] STORED_FILENAME
-
     vi  vi [OPTIONS] [FILE]...
-
-    volname
-        volname [DEVICE]
 
     watch
         watch [-n SEC] [-t] PROG ARGS
 
-    watchdog
-        watchdog [-t N[ms]] [-T N[ms]] [-F] DEV
-
-    wc  wc [-clwL] [FILE]...
+    wget
+        wget [-c|--continue] [--spider] [-q|--quiet] [-O|--output-document
+        FILE] [--header 'header: value'] [-Y|--proxy on/off] [-P DIR]
+        [-S|--server-response] [-U|--user-agent AGENT] [-T SEC] URL...
 
     which
         which [COMMAND]...
-
-    whoami
-        whoami
-
-    whois
-        whois [-i] [-h SERVER] [-p PORT] NAME...
 
     xargs
         xargs [OPTIONS] [PROG ARGS]
 
     yes yes [STRING]
-
-    zcip
-        zcip [OPTIONS] IFACE SCRIPT
 
 LIBC NSS
     GNU Libc (glibc) uses the Name Service Switch (NSS) to configure the
