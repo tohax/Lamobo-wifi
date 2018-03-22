@@ -8,6 +8,7 @@ echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-0/new_device
 hwclock --hctosys
 
 /usr/bin/telnetd
+/etc/init.d/key &
 
 #modprobe 8192cu
 modprobe 8188eu

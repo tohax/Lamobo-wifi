@@ -1,6 +1,7 @@
 #!/bin/sh
 echo heartbeat > /sys/class/leds/g_led/trigger
 sed -i '/wlan0/d' /etc/mdev.conf
+cp /mnt/param /etc/param
 Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
 echo `cat /etc/param | grep HOST= | cut -d "=" -f 2` > /etc/sysconfig/HOSTNAME
 hostname -F /etc/sysconfig/HOSTNAME
