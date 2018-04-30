@@ -5,6 +5,9 @@ Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
 sleep 1
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf 2>/dev/null
 /etc/init.d/wifi.sh 1>/dev/null
+if ping -c 2 $Server 1>/dev/null
+then
+/etc/init.d/mon.sh &
 rdate -s time.nist.gov
 hwclock --systohc
 echo heartbeat > /sys/class/leds/r_led/trigger
@@ -21,3 +24,7 @@ echo none > /sys/class/leds/g_led/trigger
 echo none > /sys/class/leds/r_led/trigger
 echo 0 > /sys/class/leds/g_led/brightness
 echo 1 > /sys/class/leds/r_led/brightness
+else
+sleep 180
+/sbin/reboot
+fi
