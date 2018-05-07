@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Busybox version: 1.28.1
-# Wed Feb 21 09:41:25 2018
+# Mon May  7 12:44:13 2018
 #
 CONFIG_HAVE_DOT_CONFIG=y
 
@@ -232,12 +232,12 @@ CONFIG_FALSE=y
 CONFIG_HEAD=y
 CONFIG_FEATURE_FANCY_HEAD=y
 # CONFIG_HOSTID is not set
-# CONFIG_ID is not set
+CONFIG_ID=y
 # CONFIG_GROUPS is not set
 # CONFIG_INSTALL is not set
 # CONFIG_FEATURE_INSTALL_LONG_OPTIONS is not set
 # CONFIG_LINK is not set
-# CONFIG_LN is not set
+CONFIG_LN=y
 # CONFIG_LOGNAME is not set
 CONFIG_LS=y
 CONFIG_FEATURE_LS_FILETYPES=y

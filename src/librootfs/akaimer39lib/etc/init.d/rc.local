@@ -1,17 +1,14 @@
 #!/bin/sh
 
 # Mount sd card
-mount $(ls /dev/mmcblk0p*) /mnt
+mount /dev/mmcblk0p1 /mnt
 
 # Adding Hwclock to the system
 echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-0/new_device
 hwclock --hctosys
 
-#/usr/bin/telnetd
-/etc/init.d/key &
-
-modprobe 8192cu rtw_power_mgnt=0
-modprobe 8188eu rtw_power_mgnt=0
+modprobe 8192cu rtw_power_mgnt=0 rtw_enusbss=0
+modprobe 8188eu rtw_power_mgnt=0 rtw_enusbss=0
 
 # Cron
 /usr/sbin/crond
@@ -19,10 +16,10 @@ modprobe 8188eu rtw_power_mgnt=0
 echo "5120" > /proc/sys/vm/min_free_kbytes
 
 if [ -f /mnt/param ]; then
-	sed -i 's/\r$//g' /mnt/param
-	cp -f /mnt/param /etc/param
-	/etc/init.d/setup.sh &
+        sed -i 's/\r$//g' /mnt/param
+        cp -f /mnt/param /etc/param
+        /etc/init.d/setup.sh &
 else
-	dropbear -B -R
-	if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; fi
+        dropbear -B -R
+        if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; fi
 fi
