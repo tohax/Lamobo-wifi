@@ -1,7 +1,7 @@
 #!/bin/sh
 if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; exit; fi
 Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
-killall -15 record_video mon.sh sleep
+killall -15 camera.sh record_video mon.sh sleep
 sync && echo 3 > /proc/sys/vm/drop_caches && sleep 1
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf
 /etc/init.d/wifi.sh
