@@ -46,10 +46,10 @@ build_kernel()
     $MAKE O=$DEV_ROOT/output/kernel LOCALVERSION= -j$NCPU modules
     $MAKE O=$DEV_ROOT/output/kernel LOCALVERSION= -j$NCPU modules_prepare
 
-#    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtl8188EUS_rtl8189ES
-#    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel modules
-#    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel strip
-#    $CP 8188eu.ko $DEV_ROOT/output
+    cd $DEV_ROOT/src/kernel/drivers/net/wireless/rtl8188EUS_rtl8189ES
+    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel modules
+    $MAKE -j$NCPU KSRC=$DEV_ROOT/output/kernel strip
+    $CP 8188eu.ko $DEV_ROOT/output
 
 }
 
@@ -74,8 +74,8 @@ config_busybox()
         ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- \
         lamobo_d1_defconfig
 
-    $MAKE O=$DEV_ROOT/output/busybox \
-        ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- menuconfig
+#    $MAKE O=$DEV_ROOT/output/busybox \
+#        ARCH=arm CROSS_COMPILE=arm-none-linux-gnueabi- menuconfig
 }
 
 build_busybox()
