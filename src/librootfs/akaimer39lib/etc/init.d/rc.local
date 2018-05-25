@@ -7,6 +7,8 @@ mount /dev/mmcblk0p1 /mnt
 echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-0/new_device
 hwclock --hctosys
 
+/etc/init.d/key &
+
 modprobe 8192cu rtw_power_mgnt=0 rtw_enusbss=0
 modprobe 8188eu rtw_power_mgnt=0 rtw_enusbss=0
 
@@ -21,5 +23,5 @@ if [ -f /mnt/param ]; then
         /etc/init.d/setup.sh &
 else
         dropbear -B -R
-        if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; fi
+        if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; else /etc/init.d/on.sh; fi
 fi

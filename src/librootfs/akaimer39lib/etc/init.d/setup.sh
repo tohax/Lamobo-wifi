@@ -27,7 +27,7 @@ echo heartbeat > /sys/class/leds/g_led/trigger
 if pgrep wpa_supplicant; then kill `pgrep wpa_supplicant`; fi
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf
 /etc/init.d/wifi.sh
-rdate -s $Server
+rdate -s time.nist.gov
 hwclock --systohc
 echo `date`
 dropbear -R -B
@@ -36,8 +36,8 @@ umount -l /mnt
 yes | /usr/bin/mke2fs -t ext3 $(ls /dev/mmcblk0p*)
 mount $(ls /dev/mmcblk0p*) /mnt
 rm -rf /mnt/*
-echo '-wlan0 root:root 0660 $/etc/init.d/off.sh' >> /etc/mdev.conf
-echo 'wlan0 root:root 0660 @/etc/init.d/on.sh' >> /etc/mdev.conf
+#echo '-wlan0 root:root 0660 $/etc/init.d/off.sh' >> /etc/mdev.conf
+#echo 'wlan0 root:root 0660 @/etc/init.d/on.sh' >> /etc/mdev.conf
 echo "Setup finished" >> /etc/`hostname`_setup
 rsync -avW --size-only --password-file=/etc/.rsync /etc/`hostname`_setup root@$Server::log/`date +%Y%m%d`/
 rm -f /etc/`hostname`_setup

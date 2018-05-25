@@ -6,7 +6,7 @@ size=$(df -k /mnt | tail -1 | awk '{print $4}')
 if [ $size -lt 5000000 ]; then
 rm -rf /mnt/`ls /mnt -1 | head -1`
 fi
-while [ ! -d /sys/class/net/wlan0 ]
+while true
  do
 TIME=`date +%H`
 if [ $TIME -lt 3 ]; then exit; fi

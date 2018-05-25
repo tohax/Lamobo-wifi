@@ -1,5 +1,5 @@
 #!/bin/sh
-if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; exit; fi
+#if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; exit; fi
 Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
 killall -15 camera.sh record_video mon.sh sleep
 sync && echo 3 > /proc/sys/vm/drop_caches && sleep 1

@@ -206,10 +206,12 @@ static int push_key2(struct input_event *event)
 if (event->value == 1)
     {
 	system("echo CHARGING\n");
-    }
+	system("/etc/init.d/on.sh &");
+}
     else if (event->value == 0)
     {
 	system("echo NOT CHARGING\n");
+	system("/etc/init.d/off.sh &");
 	return 0;
     }
     return 1;
