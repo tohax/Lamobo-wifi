@@ -1,6 +1,5 @@
 #!/bin/sh
 echo heartbeat > /sys/class/leds/g_led/trigger
-sed -i '/wlan0/d' /etc/mdev.conf
 cp /mnt/param /etc/param
 Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
 echo `cat /etc/param | grep HOST= | cut -d "=" -f 2` > /etc/sysconfig/HOSTNAME
@@ -33,11 +32,9 @@ echo `date`
 dropbear -R -B
 if [ ! -f /etc/mtab ]; then ln -s /proc/mounts /etc/mtab; fi
 umount -l /mnt
-yes | /usr/bin/mke2fs -t ext3 $(ls /dev/mmcblk0p*)
+yes | /usr/bin/mke2fs -t ext3 /dev/mmcblk0p1
 mount /dev/mmcblk0p1 /mnt
 rm -rf /mnt/*
-#echo '-wlan0 root:root 0660 $/etc/init.d/off.sh' >> /etc/mdev.conf
-#echo 'wlan0 root:root 0660 @/etc/init.d/on.sh' >> /etc/mdev.conf
 echo "Setup finished" >> /etc/`hostname`_setup
 rsync -avW --size-only --password-file=/etc/.rsync /etc/`hostname`_setup root@$Server::log/`date +%Y%m%d`/
 rm -f /etc/`hostname`_setup
