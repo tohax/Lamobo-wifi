@@ -1,7 +1,7 @@
 #
 # Automatically generated make config: don't edit
 # Busybox version: 1.28.1
-# Mon May  7 12:44:13 2018
+# Sun May 27 15:01:31 2018
 #
 CONFIG_HAVE_DOT_CONFIG=y
 
@@ -289,7 +289,7 @@ CONFIG_FEATURE_FLOAT_SLEEP=y
 # CONFIG_FEATURE_STAT_FILESYSTEM is not set
 # CONFIG_STTY is not set
 # CONFIG_SUM is not set
-# CONFIG_SYNC is not set
+CONFIG_SYNC=y
 # CONFIG_FEATURE_SYNC_FANCY is not set
 # CONFIG_TAC is not set
 CONFIG_TAIL=y

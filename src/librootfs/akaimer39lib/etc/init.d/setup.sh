@@ -34,7 +34,7 @@ dropbear -R -B
 if [ ! -f /etc/mtab ]; then ln -s /proc/mounts /etc/mtab; fi
 umount -l /mnt
 yes | /usr/bin/mke2fs -t ext3 $(ls /dev/mmcblk0p*)
-mount $(ls /dev/mmcblk0p*) /mnt
+mount /dev/mmcblk0p1 /mnt
 rm -rf /mnt/*
 #echo '-wlan0 root:root 0660 $/etc/init.d/off.sh' >> /etc/mdev.conf
 #echo 'wlan0 root:root 0660 @/etc/init.d/on.sh' >> /etc/mdev.conf
