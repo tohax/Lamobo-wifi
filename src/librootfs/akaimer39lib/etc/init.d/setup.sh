@@ -1,6 +1,5 @@
 #!/bin/sh
 echo heartbeat > /sys/class/leds/g_led/trigger
-cp /mnt/param /etc/param
 Server=$(cat /etc/param | grep Server= | cut -d "=" -f 2)
 echo `cat /etc/param | grep HOST= | cut -d "=" -f 2` > /etc/sysconfig/HOSTNAME
 hostname -F /etc/sysconfig/HOSTNAME
@@ -26,10 +25,10 @@ echo heartbeat > /sys/class/leds/g_led/trigger
 if pgrep wpa_supplicant; then kill `pgrep wpa_supplicant`; fi
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf
 /etc/init.d/wifi.sh
+dropbear -R -B
 rdate -s time.nist.gov
 hwclock --systohc
 echo `date`
-dropbear -R -B
 if [ ! -f /etc/mtab ]; then ln -s /proc/mounts /etc/mtab; fi
 umount -l /mnt
 yes | /usr/bin/mke2fs -t ext3 /dev/mmcblk0p1
