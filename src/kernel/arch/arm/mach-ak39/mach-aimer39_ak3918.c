@@ -445,7 +445,7 @@ static struct gpio_keys_button gpio_keys_button[] = {
 	{
                 .code                   = KEY_2,
                 .type                   = EV_KEY,
-                .gpio                   = AK_GPIO_38,
+                .gpio                   = AK_GPIO_6,
                 .active_low             = 1,
                 .wakeup                 = 0,
                 .debounce_interval      = 30,
