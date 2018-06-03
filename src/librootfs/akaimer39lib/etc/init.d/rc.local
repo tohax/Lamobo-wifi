@@ -11,7 +11,7 @@ modprobe 8192cu rtw_power_mgnt=0 rtw_enusbss=0
 modprobe 8188eu rtw_power_mgnt=0 rtw_enusbss=0
 
 # Cron
-/usr/sbin/crond
+crond
 
 echo "5120" > /proc/sys/vm/min_free_kbytes
 
@@ -21,6 +21,7 @@ if [ -f /mnt/param ]; then
         /etc/init.d/setup.sh
 else
 	/etc/init.d/key &
-        dropbear -B -R
+	telnetd
+        dropbear -B
         if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; else /etc/init.d/on.sh; fi
 fi

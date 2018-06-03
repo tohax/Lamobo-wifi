@@ -25,7 +25,7 @@ echo heartbeat > /sys/class/leds/g_led/trigger
 if pgrep wpa_supplicant; then kill `pgrep wpa_supplicant`; fi
 wpa_supplicant -B -iwlan0 -Dwext -c /etc/wpa_supplicant.conf
 /etc/init.d/wifi.sh
-dropbear -R -B
+dropbear -B
 rdate -s time.nist.gov
 hwclock --systohc
 echo `date`
