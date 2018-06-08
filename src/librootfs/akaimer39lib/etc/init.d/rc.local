@@ -7,13 +7,13 @@ mount /dev/mmcblk0p1 /mnt
 echo ds1307 0x68 > /sys/class/i2c-adapter/i2c-0/new_device
 hwclock --hctosys
 
-modprobe 8192cu rtw_power_mgnt=0 rtw_enusbss=0
+#modprobe 8192cu rtw_power_mgnt=0 rtw_enusbss=0
 modprobe 8188eu rtw_power_mgnt=0 rtw_enusbss=0
 
 # Cron
 crond
 
-echo "5120" > /proc/sys/vm/min_free_kbytes
+#echo "5120" > /proc/sys/vm/min_free_kbytes
 
 if [ -f /mnt/param ]; then
         sed -i 's/\r$//g' /mnt/param

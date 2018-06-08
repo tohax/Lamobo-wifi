@@ -35,6 +35,6 @@ yes | /usr/bin/mke2fs -t ext3 /dev/mmcblk0p1
 mount /dev/mmcblk0p1 /mnt
 rm -rf /mnt/*
 echo "Setup finished" >> /etc/`hostname`_setup
-rsync -avW --size-only --password-file=/etc/.rsync /etc/`hostname`_setup root@$Server::log/`date +%Y%m%d`/
+rsync -avW --password-file=/etc/.rsync /etc/`hostname`_setup root@$Server::log/`date +%Y%m%d`/
 rm -f /etc/`hostname`_setup
 reboot
