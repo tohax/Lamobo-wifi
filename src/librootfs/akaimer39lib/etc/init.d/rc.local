@@ -13,15 +13,15 @@ modprobe 8188eu rtw_power_mgnt=0 rtw_enusbss=0
 # Cron
 crond
 
-#echo "5120" > /proc/sys/vm/min_free_kbytes
+echo "5120" > /proc/sys/vm/min_free_kbytes
 
 if [ -f /mnt/param ]; then
         sed -i 's/\r$//g' /mnt/param
         cp -f /mnt/param /etc/param
-        /etc/init.d/setup.sh
+        /etc/init.d/setup.sh &
 else
-	/etc/init.d/key &
+#	/etc/init.d/key &
 	telnetd
         dropbear -B
-        if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; else /etc/init.d/on.sh; fi
+        if [ ! -d /sys/class/net/wlan0 ]; then /etc/init.d/off.sh; fi
 fi

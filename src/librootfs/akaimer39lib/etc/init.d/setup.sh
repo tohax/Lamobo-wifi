@@ -13,6 +13,7 @@ dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
 
 echo none > /sys/class/leds/g_led/trigger
 echo 1 > /sys/class/leds/r_led/brightness
+
 while [ ! -d /sys/class/net/wlan0 ]
 do
 echo "Connect power adapter"
@@ -34,6 +35,8 @@ umount -l /mnt
 yes | /usr/bin/mke2fs -t ext3 /dev/mmcblk0p1
 mount /dev/mmcblk0p1 /mnt
 rm -rf /mnt/*
+echo '-wlan0 root:root 0660 $/etc/init.d/off.sh' >> /etc/mdev.conf
+echo 'wlan0 root:root 0660 @/etc/init.d/on.sh' >> /etc/mdev.conf
 echo "Setup finished" >> /etc/`hostname`_setup
 rsync -avW --password-file=/etc/.rsync /etc/`hostname`_setup root@$Server::log/`date +%Y%m%d`/
 rm -f /etc/`hostname`_setup
