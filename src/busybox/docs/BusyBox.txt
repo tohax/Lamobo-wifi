@@ -80,18 +80,18 @@ COMMANDS
             chmod, chroot, chvt, clear, cmp, cp, crond, crontab, cttyhack, cut,
             date, dd, deallocvt, depmod, devmem, df, diff, dmesg, du, dumpkmap,
             echo, ed, egrep, env, false, fgconsole, fgrep, find, free, fsck,
-            fuser, getty, grep, halt, head, hostname, hwclock, ifconfig, ifdown,
-            ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr, iplink,
-            ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
-            killall5, less, loadfont, loadkmap, login, ls, lsattr, lsmod, lsof,
-            lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2, mkfs.vfat,
-            mknod, modinfo, modprobe, more, mount, mv, nc, nslookup, nuke, od,
-            openvt, passwd, paste, patch, pgrep, pidof, ping, pkill, poweroff,
-            printenv, printf, ps, pstree, pwd, rdate, reboot, reset, resize,
-            resume, rm, rmdir, rmmod, route, run-init, sed, seq, setconsole,
-            setfont, setkeycodes, setlogcons, sh, showkey, slattach, sleep,
-            ssl_client, sysctl, tail, tee, top, touch, true, tty, tune2fs,
-            uevent, umount, vi, watch, wget, which, xargs, yes
+            fuser, getty, grep, halt, head, hostname, hwclock, id, ifconfig,
+            ifdown, ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr,
+            iplink, ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
+            killall5, less, ln, loadfont, loadkmap, login, ls, lsattr, lsmod,
+            lsof, lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2,
+            mkfs.vfat, mknod, modinfo, modprobe, more, mount, mv, nc, nslookup,
+            nuke, od, openvt, passwd, paste, patch, pgrep, pidof, ping, pkill,
+            poweroff, printenv, printf, ps, pstree, pwd, rdate, reboot, reset,
+            resize, resume, rm, rmdir, rmmod, route, run-init, sed, seq,
+            setconsole, setfont, setkeycodes, setlogcons, sh, showkey, slattach,
+            sleep, ssl_client, sync, sysctl, tail, tee, top, touch, true, tty,
+            tune2fs, uevent, umount, vi, watch, wget, which, xargs, yes
 
 COMMAND DESCRIPTIONS
     acpid
@@ -223,6 +223,8 @@ COMMAND DESCRIPTIONS
         hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [--systz]
         [--localtime] [-u|--utc] [-f|--rtc FILE]
 
+    id  id [OPTIONS] [USER]
+
     ifconfig
         ifconfig [-a] interface [address]
 
@@ -283,6 +285,8 @@ COMMAND DESCRIPTIONS
 
     less
         less [-EIMmNSh~] [FILE]...
+
+    ln  ln [OPTIONS] TARGET... LINK|DIR
 
     loadfont
         loadfont < font
@@ -455,6 +459,9 @@ COMMAND DESCRIPTIONS
 
     ssl_client
         ssl_client -s FD [-r FD] [-n SNI]
+
+    sync
+        sync
 
     sysctl
         sysctl -p [-enq] [FILE...] / [-enqaw] [KEY[=VALUE]]...

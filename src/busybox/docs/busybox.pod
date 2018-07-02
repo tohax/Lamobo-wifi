@@ -85,18 +85,18 @@ Currently available applets include:
 	chmod, chroot, chvt, clear, cmp, cp, crond, crontab, cttyhack, cut,
 	date, dd, deallocvt, depmod, devmem, df, diff, dmesg, du, dumpkmap,
 	echo, ed, egrep, env, false, fgconsole, fgrep, find, free, fsck,
-	fuser, getty, grep, halt, head, hostname, hwclock, ifconfig, ifdown,
-	ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr, iplink,
-	ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
-	killall5, less, loadfont, loadkmap, login, ls, lsattr, lsmod, lsof,
-	lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2, mkfs.vfat,
-	mknod, modinfo, modprobe, more, mount, mv, nc, nslookup, nuke, od,
-	openvt, passwd, paste, patch, pgrep, pidof, ping, pkill, poweroff,
-	printenv, printf, ps, pstree, pwd, rdate, reboot, reset, resize,
-	resume, rm, rmdir, rmmod, route, run-init, sed, seq, setconsole,
-	setfont, setkeycodes, setlogcons, sh, showkey, slattach, sleep,
-	ssl_client, sysctl, tail, tee, top, touch, true, tty, tune2fs,
-	uevent, umount, vi, watch, wget, which, xargs, yes
+	fuser, getty, grep, halt, head, hostname, hwclock, id, ifconfig,
+	ifdown, ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr,
+	iplink, ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
+	killall5, less, ln, loadfont, loadkmap, login, ls, lsattr, lsmod,
+	lsof, lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2,
+	mkfs.vfat, mknod, modinfo, modprobe, more, mount, mv, nc, nslookup,
+	nuke, od, openvt, passwd, paste, patch, pgrep, pidof, ping, pkill,
+	poweroff, printenv, printf, ps, pstree, pwd, rdate, reboot, reset,
+	resize, resume, rm, rmdir, rmmod, route, run-init, sed, seq,
+	setconsole, setfont, setkeycodes, setlogcons, sh, showkey, slattach,
+	sleep, ssl_client, sync, sysctl, tail, tee, top, touch, true, tty,
+	tune2fs, uevent, umount, vi, watch, wget, which, xargs, yes
 
 =head1 COMMAND DESCRIPTIONS
 
@@ -284,6 +284,10 @@ hostname [OPTIONS] [HOSTNAME | -F FILE]
 
 hwclock [-r|--show] [-s|--hctosys] [-w|--systohc] [--systz] [--localtime] [-u|--utc] [-f|--rtc FILE]
 
+=item B<id>
+
+id [OPTIONS] [USER]
+
 =item B<ifconfig>
 
 ifconfig [-a] interface [address]
@@ -365,6 +369,10 @@ killall5 [-l] [-SIG] [-o PID]...
 =item B<less>
 
 less [-EIMmNSh~] [FILE]...
+
+=item B<ln>
+
+ln [OPTIONS] TARGET... LINK|DIR
 
 =item B<loadfont>
 
@@ -603,6 +611,10 @@ sleep [N]...
 =item B<ssl_client>
 
 ssl_client -s FD [-r FD] [-n SNI]
+
+=item B<sync>
+
+sync
 
 =item B<sysctl>
 

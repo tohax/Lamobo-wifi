@@ -133,7 +133,7 @@
 .\" ========================================================================
 .\"
 .IX Title "BUSYBOX 1"
-.TH BUSYBOX 1 "2018-02-21" "version 1.28.1" "busybox"
+.TH BUSYBOX 1 "2018-07-02" "version 1.28.4" "busybox"
 .\" For nroff, turn off justification.  Always turn off hyphenation; it makes
 .\" way too many mistakes in technical documents.
 .if n .ad l
@@ -224,18 +224,18 @@ Currently available applets include:
 \&        chmod, chroot, chvt, clear, cmp, cp, crond, crontab, cttyhack, cut,
 \&        date, dd, deallocvt, depmod, devmem, df, diff, dmesg, du, dumpkmap,
 \&        echo, ed, egrep, env, false, fgconsole, fgrep, find, free, fsck,
-\&        fuser, getty, grep, halt, head, hostname, hwclock, ifconfig, ifdown,
-\&        ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr, iplink,
-\&        ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
-\&        killall5, less, loadfont, loadkmap, login, ls, lsattr, lsmod, lsof,
-\&        lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2, mkfs.vfat,
-\&        mknod, modinfo, modprobe, more, mount, mv, nc, nslookup, nuke, od,
-\&        openvt, passwd, paste, patch, pgrep, pidof, ping, pkill, poweroff,
-\&        printenv, printf, ps, pstree, pwd, rdate, reboot, reset, resize,
-\&        resume, rm, rmdir, rmmod, route, run\-init, sed, seq, setconsole,
-\&        setfont, setkeycodes, setlogcons, sh, showkey, slattach, sleep,
-\&        ssl_client, sysctl, tail, tee, top, touch, true, tty, tune2fs,
-\&        uevent, umount, vi, watch, wget, which, xargs, yes
+\&        fuser, getty, grep, halt, head, hostname, hwclock, id, ifconfig,
+\&        ifdown, ifplugd, ifup, inetd, init, insmod, iostat, ip, ipaddr,
+\&        iplink, ipneigh, iproute, iprule, iptunnel, kbd_mode, kill, killall,
+\&        killall5, less, ln, loadfont, loadkmap, login, ls, lsattr, lsmod,
+\&        lsof, lsusb, makedevs, mdev, mkdir, mkdosfs, mke2fs, mkfs.ext2,
+\&        mkfs.vfat, mknod, modinfo, modprobe, more, mount, mv, nc, nslookup,
+\&        nuke, od, openvt, passwd, paste, patch, pgrep, pidof, ping, pkill,
+\&        poweroff, printenv, printf, ps, pstree, pwd, rdate, reboot, reset,
+\&        resize, resume, rm, rmdir, rmmod, route, run\-init, sed, seq,
+\&        setconsole, setfont, setkeycodes, setlogcons, sh, showkey, slattach,
+\&        sleep, ssl_client, sync, sysctl, tail, tee, top, touch, true, tty,
+\&        tune2fs, uevent, umount, vi, watch, wget, which, xargs, yes
 .Ve
 .SH "COMMAND DESCRIPTIONS"
 .IX Header "COMMAND DESCRIPTIONS"
@@ -377,6 +377,9 @@ hostname [\s-1OPTIONS\s0] [\s-1HOSTNAME\s0 | \-F \s-1FILE\s0]
 .IP "\fBhwclock\fR" 4
 .IX Item "hwclock"
 hwclock [\-r|\-\-show] [\-s|\-\-hctosys] [\-w|\-\-systohc] [\-\-systz] [\-\-localtime] [\-u|\-\-utc] [\-f|\-\-rtc \s-1FILE\s0]
+.IP "\fBid\fR" 4
+.IX Item "id"
+id [\s-1OPTIONS\s0] [\s-1USER\s0]
 .IP "\fBifconfig\fR" 4
 .IX Item "ifconfig"
 ifconfig [\-a] interface [address]
@@ -439,6 +442,9 @@ killall5 [\-l] [\-SIG] [\-o \s-1PID\s0]...
 .IP "\fBless\fR" 4
 .IX Item "less"
 less [\-EIMmNSh~] [\s-1FILE\s0]...
+.IP "\fBln\fR" 4
+.IX Item "ln"
+ln [\s-1OPTIONS\s0] \s-1TARGET...\s0 LINK|DIR
 .IP "\fBloadfont\fR" 4
 .IX Item "loadfont"
 loadfont < font
@@ -618,6 +624,9 @@ sleep [N]...
 .IP "\fBssl_client\fR" 4
 .IX Item "ssl_client"
 ssl_client \-s \s-1FD\s0 [\-r \s-1FD\s0] [\-n \s-1SNI\s0]
+.IP "\fBsync\fR" 4
+.IX Item "sync"
+sync
 .IP "\fBsysctl\fR" 4
 .IX Item "sysctl"
 sysctl \-p [\-enq] [\s-1FILE...\s0] / [\-enqaw] [KEY[=VALUE]]...
